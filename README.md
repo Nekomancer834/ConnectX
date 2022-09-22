@@ -1,0 +1,2 @@
+# ConnectX
+ConnectXGo project repository
