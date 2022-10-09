@@ -265,6 +265,7 @@ start game button
 help button
 color selection boxes
 toggle (go feature)
+![main menu](https://github.com/Nekomancer834/ConnectX/blob/main/Main-Menu.png?raw=true)
 
 Game Menu
 16:9
@@ -274,9 +275,7 @@ end turn button
 help button
 player list
 error message box above board
-
-GO HERE AND INSERT IMAGES
-
+![game menu idea 1](https://github.com/Nekomancer834/ConnectX/blob/main/Game%20UI%20layout%20idea1.png?raw=true)
 
 ### 4.2 Hardware Interfaces
 standard java interfaces
