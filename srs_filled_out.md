@@ -1,5 +1,5 @@
 ﻿
-# \<Project\>
+# \<Connect X\>
 ### Software Requirements Specification
    Version 1.0 approved\
    Prepared by Trentin and Mohamed\
