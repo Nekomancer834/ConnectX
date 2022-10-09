@@ -310,24 +310,17 @@ N/A
 N/A = Not Applicable
 
 ## Appendix B: Analysis Models
-![enter image description here](https://github.com/Nekomancer834/ConnectX/blob/main/Lab5%20Use%20Case%20Diagram.https://github.com/Nekomancer834/ConnectX/blob/main/Lab5%20Use%20Case%20Diagram.drawio%282%29.png?raw=truedrawio%282%29.png?raw=true)
+![Use Case Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Lab5%20Use%20Case%20Diagram.https://github.com/Nekomancer834/ConnectX/blob/main/Lab5%20Use%20Case%20Diagram.drawio%282%29.png?raw=truedrawio%282%29.png?raw=true)
 ![Activity Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Lab%206%20Activity%20Diagram.drawio%282%29.png?raw=true)
 
 ## Appendix C: Issues List
 TBD - Game engine
 
-JavaFX seems like a good choice as it can be integrated into swing UIs that we have been using in class
-
-Information is needed to determine if we should continue looking into JavaFX or something else such as libGDX
-
-  
+* JavaFX seems like a good choice as it can be integrated into swing UIs that we have been using in class
+* Information is needed to determine if we should continue looking into JavaFX or something else such as libGDX
 
 TBD - piece tracking
-
-for game piece tracking and win condition checking, 2D arrays and linked lists seem equally able to be used however one might be more efficient so we need to look into these
-
-  
+* for game piece tracking and win condition checking, 2D arrays and linked lists seem equally able to be used however one might be more efficient so we need to look into these
 
 TBD - Game menu layout
-
-The UI for the game menu can be set up multiple ways that seem to be equally user friendly so we should decide on that
+* The UI for the game menu can be set up multiple ways that seem to be equally user friendly so we should decide on that
