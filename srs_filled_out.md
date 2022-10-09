@@ -24,7 +24,7 @@
 3. [System Features](#3-system-features)\
 	3.1 [Game Start Menu](#31-system-feature-1)\
 	3.2 [Player Color selection](#32-Player-Color-Selection)\
-	3.3 [Player Count Selection](#33-Player-Count_Selection)\
+	3.3 [Player Count Selection](#33-Player-Count-Selection)\
 	3.4 [Difficulty Selection](#34-Difficulty-Selection)\
 	3.5 [Game Menu](#35-Game-Menu)\
 	3.6 [Game Board](#36-Game-Board)
