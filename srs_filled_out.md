@@ -1,5 +1,5 @@
 ﻿
-# Connect X\
+# Connect X
 ### Software Requirements Specification
    Version 1.0 approved\
    Prepared by Trentin and Mohamed\
@@ -56,7 +56,7 @@ Appendix C: [Issues List](#appendix-c-issues-list)
 
 ### 1.1 Purpose
 
-Connect X Go 0.01b a game for 2-6 people where they try to get 4 of their in a row with an added difficulty of a GO feature. The GO feature will add more difficulty and complexity as the player count rises. If a player’s piece is surrounded by 4 other player’s pieces and one is a GO piece, the center piece is converted.
+Connect X Go 1.0 is a game for 2-6 people where they try to get 4 of their pieces in a row with an added difficulty of a GO feature. The GO feature will add more difficulty and complexity as the player count rises. If a player’s piece is surrounded by 4 other player’s pieces and one is a GO piece, the center piece is converted to the surrounding color.
 
 ### 1.2 Document Conventions
 
@@ -76,7 +76,6 @@ The software being provided is Connect X Go. Its purpose is to provide friendly 
 ### 1.5 References
 
 https://whatsgoodtodo.co.uk/official-hasbro-giant-connect-4-review/ for the picture used in a mockup
-potentially more references as the project progresses
 
 
 ## 2. Overall Description
@@ -112,7 +111,7 @@ New Players
 
 ### 2.4 Operating Environment
 
-This game will run on laptops and desktops. The game will run on any operating capable of running Java 1.8 or higher.
+This game will run on laptops and desktops. The game will run on any operating system capable of running Java 1.8 or higher.
 
 ### 2.5 Design and Implementation Constraints
 
@@ -143,19 +142,19 @@ PDF guide to show basic functionality
 high priority interface that the user interacts with to start the game, to set player count, to determine difficulty, and to set individual player colors
 
 #### 3.1.2 Stimulus/Response Sequences
-Stimulus: The user interacts with the player count drop-down menu
+Stimulus: The user interacts with the player count drop-down menu\
 Response: The game stores the changed value
 
-Stimulus: The user interacts with the color selection menus
+Stimulus: The user interacts with the color selection menus\
 Response: The game updates the piece colors based on decided user input
 
-Stimulus: the user interacts with the difficulty slider
+Stimulus: the user interacts with the difficulty slider\
 Response: the program reflects the difficulty change on the UI and sets internal variables
 
-Stimulus: the user toggles the go feature toggle
+Stimulus: the user toggles the go feature toggle\
 Response: the program sets whether or not to provide go pieces internally
 
-Stimulus: the user presses the start game button
+Stimulus: the user presses the start game button\
 Response: the program sets internal variables based on the provided information from the user and transitions to the game 	menu
 
 
