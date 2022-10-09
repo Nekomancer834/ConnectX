@@ -1,5 +1,5 @@
 ﻿
-# \<Connect X\>
+# Connect X\
 ### Software Requirements Specification
    Version 1.0 approved\
    Prepared by Trentin and Mohamed\
@@ -23,9 +23,11 @@
   2.7 [Assumptions and Dependencies](#27-assumptions-and-dependencies)
 3. [System Features](#3-system-features)\
 	3.1 [Game Start Menu](#31-system-feature-1)\
-	3.2 [Player Color selection]( #32-Player-Color-Selection)
-	3.3 [System Feature 1](#31-system-feature-1)\
-	3.4 [System Feature 2 (and so on)](#32-system-feature-2-and-so-on)
+	3.2 [Player Color selection]( #32-Player-Color-Selection)\
+	3.3 [Player Count Selection](#33-Player-Count_Selection)\
+	3.4 [Difficulty Selection](#34-Difficulty-Selection)\
+	3.5 [Game Menu](#35-Game-Menu)\
+	5.6 [Game Board](#36-Game-Board)\
 4. [External Interface Requirements](#4-external-interface-requirements)\
 	4.1 [User Interfaces](#41-user-interfaces)\
 	4.2 [Hardware Interfaces](#42-hardware-interfaces)\
@@ -44,10 +46,10 @@ Appendix C: [Issues List](#appendix-c-issues-list)
 
 ## Revision History
 
-| Name   | Date   | Reason For Changes   | Version   |
-| ------ | ------ | -------------------- | --------- |
-|        |        |                      |           |
-|        |        |                      |           |
+| Name   | Date    | Reason For Changes   | Version   |
+| ------ | ------  | -------------------- | --------- |
+| all    | 10/9/22 | initial changes      | 1.0       |
+|        |         |                      |           |
 
 
 ## 1. Introduction
