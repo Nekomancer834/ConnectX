@@ -155,15 +155,15 @@ Stimulus: the user toggles the go feature toggle\
 Response: the program sets whether or not to provide go pieces internally
 
 Stimulus: the user presses the start game button\
-Response: the program sets internal variables based on the provided information from the user and transitions to the game 	menu
+Response: the program sets internal variables based on the provided information from the user and transitions to the game menu
 
 
 #### 3.1.3 Functional Requirements
 
-REQ-1: buttons for each player’s color
-REQ-2: drop-down menu for player count
-REQ-3: slider for difficulty
-REQ-4: start game button
+REQ-1: buttons for each player’s color\
+REQ-2: drop-down menu for player count\
+REQ-3: slider for difficulty\
+REQ-4: start game button\
 REQ-5: Go feature toggle
 
 ### 3.2 Player Color Selection
@@ -178,8 +178,7 @@ Stimulus: The Players will click on their respective drop-down menu\
 Response: The program will display a color picker with many options for colors
 
 #### 3.2.3 Functional Requirements
-REQ-1: Color picker drop-down
-REQ-2: As many color pickers as players
+REQ-1: 6 Color picker drop-downs
 
 ### 3.3 Player Count Selection
 
@@ -232,9 +231,9 @@ Stimulus: the user clicks yes on the end game confirmation\
 Response: the program will return to the main menu
 
 #### 3.5.3 Functional Requirements
-REQ-1: game board
-REQ-2: end turn button
-REQ-3: end game button
+REQ-1: game board\
+REQ-2: end turn button\
+REQ-3: end game button\
 REQ-4: end game confirmation
 
 ### 3.6 Game Board
@@ -249,39 +248,41 @@ Response: the game will place their piece at the lowest space in the column that
 
 #### 3.6.3 Functional Requirements
 
-REQ-1: recreated game board style
-REQ-2: piece snapping
+REQ-1: recreated game board style\
+REQ-2: piece snapping\
 REQ-3: fake gravity
 
 ## 4. External Interface Requirements
 
 ### 4.1 User Interfaces
 Main Menu
-16:9 or 4:3 aspect ratio
-selection slider for difficulty (low medium high)
-drop down menu for player count
-start game button
-help button
-color selection boxes
-toggle (go feature)
+- 16:9 or 4:3 aspect ratio
+- selection slider for difficulty (low medium high)
+- drop down menu for player count
+- start game button
+- help button
+- color selection boxes
+- toggle (go feature)
+
 ![main menu](https://github.com/Nekomancer834/ConnectX/blob/main/Main-Menu.png?raw=true)
 
 Game Menu
-16:9
-one panel on left
-end game button
-end turn button
-help button
-player list
-error message box above board
+- 16:9
+- one panel on left
+- end game button
+- end turn button
+- help button
+- player list
+- error message box above board
+
 ![game menu idea 1](https://github.com/Nekomancer834/ConnectX/blob/main/Game%20UI%20layout%20idea1.png?raw=true)
 
 ### 4.2 Hardware Interfaces
-standard java interfaces
+This software uses the standard java interfaces.
 
 
 ### 4.3 Software Interfaces
-Help opens in web browser of user's system
+The help button opens a document in web browser of user's system.
 
 
 ### 4.4 Communications Interfaces
@@ -290,7 +291,7 @@ N/A
 ## 5. Other Nonfunctional Requirements
 
 ### 5.1 Performance Requirements
-win calculation time should be less than 5 seconds on any hardware
+the software's win calculation time should be less than 5 seconds on any hardware
 
 
 ### 5.2 Safety Requirements
