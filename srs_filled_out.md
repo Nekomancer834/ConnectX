@@ -174,7 +174,7 @@ Each player in the game will have their own color for their pieces to make it ea
 
 #### 3.2.2 Stimulus/Response Sequences
 
-Stimulus: The Players will click on their respective drop-down menu
+Stimulus: The Players will click on their respective drop-down menu\
 Response: The program will display a color picker with many options for colors
 
 #### 3.2.3 Functional Requirements
@@ -189,7 +189,7 @@ The game is playable with as few as 2 players and as many as 6 and the game will
 
 #### 3.3.2 Stimulus/Response Sequences
 
-Stimulus: The player will open up a drop-down with values for the number of players
+Stimulus: The player will open up a drop-down with values for the number of players\
 Response: The program will show an updated value and scale the board to account for the extra players
 
 #### 3.3.3 Functional Requirements
@@ -205,7 +205,7 @@ The players will artificially be able to make the board smaller than it should b
 
 #### 3.4.2 Stimulus/Response Sequences
 
-Stimulus: the player will adjust a slider to one of three values
+Stimulus: the player will adjust a slider to one of three values\
 Response: the game will update a label with the set value and set internal variables based on said value
 
 #### 3.4.3 Functional Requirements
@@ -219,16 +219,16 @@ Once the game is started the users will be shown this menu with buttons for cont
 
 #### 3.5.2 Stimulus/Response Sequences
 
-Stimulus: the user will place a piece on the game board
+Stimulus: the user will place a piece on the game board\
 Response: the game will display the piece and then check if that piece causes a win
 
-Stimulus: the user can push the end turn button
+Stimulus: the user can push the end turn button\
 Response: their turn is forfeit and the next player is selected
 
-Stimulus: the player pushes the end game button
+Stimulus: the player pushes the end game button\
 Response: the program displays a confirmation
 
-Stimulus: the user clicks yes on the end game confirmation
+Stimulus: the user clicks yes on the end game confirmation\
 Response: the program will return to the main menu
 
 #### 3.5.3 Functional Requirements
@@ -244,7 +244,7 @@ The game board is where the players will place their respective pieces and visua
 
 #### 3.6.2 Stimulus/Response Sequences
 
-Stimulus: the player will click above a column
+Stimulus: the player will click above a column\
 Response: the game will place their piece at the lowest space in the column that is not occupied to simulate gravity
 
 #### 3.6.3 Functional Requirements
