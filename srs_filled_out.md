@@ -291,7 +291,7 @@ N/A
 ## 5. Other Nonfunctional Requirements
 
 ### 5.1 Performance Requirements
-the software's win calculation time should be less than 5 seconds on any hardware
+The software's win calculation time should be less than 5 seconds on any hardware
 
 
 ### 5.2 Safety Requirements
@@ -312,7 +312,11 @@ N/A = Not Applicable
 
 ## Appendix B: Analysis Models
 ![Use Case Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Lab5%20Use%20Case%20Diagram.drawio%282%29.png?raw=true)\
+
+
 ![Activity Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Lab%206%20Activity%20Diagram.drawio%282%29.png?raw=true)\
+
+
 ![Sequence Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Sequence%20Diagram.drawio.png?raw=true)
 
 ## Appendix C: Issues List
