@@ -45,6 +45,6 @@
       <Label layoutX="439.0" layoutY="201.0" text="Normal" />
       <Label layoutX="508.0" layoutY="201.0" text="Hard" />
       <Label layoutX="240.0" layoutY="235.0" style="-fx-font-size: 24;" text="GO Feature" />
-      <CheckBox layoutX="430.0" layoutY="245.0" mnemonicParsing="false" text="Enable" />
+      <CheckBox id="goFeat" fx:id="goFeat" layoutX="430.0" layoutY="245.0" mnemonicParsing="false" text="Enable" />
    </children>
 </Pane>

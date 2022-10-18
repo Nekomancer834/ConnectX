@@ -21,6 +21,7 @@ public class FXMLDocumentController implements Initializable {
     public Label p1;
     public ChoiceBox playerCount1;
     public Slider difficultySlider;
+    public CheckBox goFeat;
     public ColorPicker cpP1;
     public ColorPicker cpP2;
     public ColorPicker cpP3;
@@ -38,7 +39,7 @@ public class FXMLDocumentController implements Initializable {
     private void startGameAction(ActionEvent event){
         //System.out.println(playerCount1.getValue());
         
-        System.out.printf("values:\ncolors: %s %s %s %s %s %s \nnumber of players: %s \ndifficulty: %s", cpP1.getValue(), cpP2.getValue(), cpP3.getValue(), cpP4.getValue(), cpP5.getValue(), cpP6.getValue(), playerCount1.getValue(), difficultySlider.getValue());
+        System.out.printf("values:\ncolors: %s %s %s %s %s %s \nnumber of players: %s \ndifficulty: %s \ngo toggle: %s", cpP1.getValue(), cpP2.getValue(), cpP3.getValue(), cpP4.getValue(), cpP5.getValue(), cpP6.getValue(), playerCount1.getValue(), difficultySlider.getValue(), goFeat.isSelected());
     }
     
     @Override
