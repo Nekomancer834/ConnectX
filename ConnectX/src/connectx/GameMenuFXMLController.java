@@ -125,7 +125,7 @@ public class GameMenuFXMLController implements Initializable {
                         playerNameList.add(playerNameList.remove());
                         System.out.println(i);
                         break;
-                default: System.out.println("8==D");
+                default: System.out.println("hi");
             }
         }
         System.out.println(playerList.peek());
