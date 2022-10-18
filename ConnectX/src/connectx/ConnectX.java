@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.scene.paint.Color;
 
 /**
  *
@@ -19,8 +18,7 @@ public class ConnectX extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        //colorpickerP1.setValue(Color.TEAL);
+        Parent root = FXMLLoader.load(getClass().getResource("MainMenuFXML.fxml"));
         Scene scene = new Scene(root, 600, 480);
         
         stage.setScene(scene);

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="connectx.FXMLDocumentController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="connectx.MainMenuFXMLController">
    <children>
       <Button id="startGame" layoutX="369.0" layoutY="309.0" mnemonicParsing="false" onAction="#startGameAction" text="Start Game" />
       <Label layoutX="233.0" layoutY="113.0" style="-fx-font-size: 24;" text="Player Count" />
@@ -15,14 +15,14 @@
             <Image url="@../res/ConnectXLogo.png" />
          </image>
       </ImageView>
-      <ChoiceBox fx:id="playerCount1" layoutX="384.0" layoutY="118.0" prefWidth="150.0" value="2 players">
+      <ChoiceBox fx:id="playerCount1" layoutX="384.0" layoutY="118.0" prefWidth="150.0" value="2">
           <items>
             <FXCollections fx:factory="observableArrayList">
-              <String fx:value="2 players" />
-              <String fx:value="3 players" />
-              <String fx:value="4 players" />
-              <String fx:value="5 players" />
-              <String fx:value="6 players" />
+              <String fx:value="2" />
+              <String fx:value="3" />
+              <String fx:value="4" />
+              <String fx:value="5" />
+              <String fx:value="6" />
             </FXCollections>
           </items>
       </ChoiceBox>

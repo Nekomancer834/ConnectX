@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="GameWindowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="connectx.GameMenuFXMLController">
+   <children>
+      <Rectangle fill="DODGERBLUE" height="720.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: grey;" width="200.0" />
+      <Pane fx:id="sidePanelPane" prefHeight="720.0" prefWidth="250.0">
+         <children>
+            <Label fx:id="playerLabel1" layoutX="25.0" layoutY="50.0" style="-fx-font-size: 24;" text="Player 1" />
+            <Circle fx:id="icon1" fill="#1f93ff" layoutX="153.0" layoutY="68.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label fx:id="playerLabel2" layoutX="25.0" layoutY="108.0" style="-fx-font-size: 24;" text="Player 2" />
+            <Circle fx:id="icon2" fill="#1f93ff" layoutX="153.0" layoutY="126.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="icon3" fill="#1f93ff" layoutX="153.0" layoutY="190.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Label fx:id="playerLabel3" layoutX="25.0" layoutY="172.0" style="-fx-font-size: 24;" text="Player 3" visible="false" />
+            <Circle fx:id="icon4" fill="#1f93ff" layoutX="153.0" layoutY="253.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Label fx:id="playerLabel4" layoutX="25.0" layoutY="235.0" style="-fx-font-size: 24;" text="Player 4" visible="false" />
+            <Circle fx:id="icon5" fill="#1f93ff" layoutX="153.0" layoutY="316.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Label fx:id="playerLabel5" layoutX="25.0" layoutY="298.0" style="-fx-font-size: 24;" text="Player 5" visible="false" />
+            <Circle fx:id="icon7" fill="#1f93ff" layoutX="153.0" layoutY="385.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Label fx:id="playerLabel6" layoutX="25.0" layoutY="367.0" style="-fx-font-size: 24;" text="Player 6" visible="false" />
+         </children>
+      </Pane>
+      <Pane fx:id="gameBoardPane" layoutX="200.0" layoutY="-1.0" onMouseClicked="#setActivePlayer" onMouseMoved="#handleMouseMove" prefHeight="720.0" prefWidth="1080.0">
+         <children>
+            <Circle fx:id="activeGamePiece" fill="DODGERBLUE" layoutX="63.0" layoutY="54.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+            <Pane layoutY="100.0" prefHeight="620.0" prefWidth="1080.0">
+               <children>
+                  <Rectangle fill="#0026ff" height="620.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" width="1080.0" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</Pane>
