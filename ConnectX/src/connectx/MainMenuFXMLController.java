@@ -38,7 +38,7 @@ public class MainMenuFXMLController implements Initializable {
     
     @FXML
     private void startGameAction(ActionEvent event) throws Exception{
-        System.out.printf("values:\ncolors: %s %s %s %s %s %s \nnumber of players: %s \ndifficulty: %s \ngo toggle: %s\n", cpP1.getValue(), cpP2.getValue(), cpP3.getValue(), cpP4.getValue(), cpP5.getValue(), cpP6.getValue(), playerCount1.getValue(), difficultySlider.getValue(), goFeat.isSelected());
+        System.out.printf("passed values:\nplayer one   color: %s\nplayer two   color: %s\nplayer three color: %s\nplayer four  color: %s\nplayer five  color: %s\nplayer six   color: %s\nnumber of players: %s \ndifficulty: %s \ngo toggle: %s\n", cpP1.getValue(), cpP2.getValue(), cpP3.getValue(), cpP4.getValue(), cpP5.getValue(), cpP6.getValue(), playerCount1.getValue(), difficultySlider.getValue(), goFeat.isSelected());
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GameMenuFXML.fxml"));
         

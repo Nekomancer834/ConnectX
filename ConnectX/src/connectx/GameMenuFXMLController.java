@@ -35,6 +35,7 @@ public class GameMenuFXMLController implements Initializable {
     public Label p4Label;
     public Label p5Label;
     public Label p6Label;
+    public Label[] playerLabelArray;
     
     public Circle p1Icon;
     public Circle p2Icon;
@@ -42,19 +43,13 @@ public class GameMenuFXMLController implements Initializable {
     public Circle p4Icon;
     public Circle p5Icon;
     public Circle p6Icon;
+    public Circle[] playerIconArray;
     
     
     
     
-    private Color player1Color;
-    private Color player2Color;
-    private Color player3Color;
-    private Color player4Color;
-    private Color player5Color;
-    private Color player6Color;
+    
     private int playerCountValue;
-    private double difficultyValue;
-    private boolean goEnable;
     
     Queue<Color> playerList = new LinkedList<Color>();
     Queue<String> playerNameList = new LinkedList<String>();
@@ -65,6 +60,16 @@ public class GameMenuFXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        playerLabelArray = new Label[]{p1Label, p2Label, p3Label, p4Label, p5Label, p6Label};
+        playerIconArray = new Circle[]{p1Icon, p2Icon, p3Icon, p4Icon, p5Icon, p6Icon};
+        
+        /*
+        for(int i=0; i<playerLabelArray.length; i++)
+            System.out.println("Label array output: "+playerLabelArray[i].getText());
+        for(int i=0; i<playerLabelArray.length; i++)
+            System.out.println("Label array output: "+playerIconArray[i].getFill());
+        */
+        
     }
     @FXML
     private void handleMouseMove(MouseEvent event) {
@@ -78,6 +83,19 @@ public class GameMenuFXMLController implements Initializable {
     
     public void setupPlayers(){
         for(int i = 0; i<playerCountValue;i++){
+            playerIconArray[i].setVisible(true);
+            playerIconArray[i].setFill(playerList.peek());
+            playerList.add(playerList.remove());
+            
+            playerLabelArray[i].setVisible(true);
+            playerLabelArray[i].setText(playerNameList.peek());
+            playerNameList.add(playerNameList.remove());
+            
+            //Debug print
+            //System.out.println(i);
+            
+            //RIP the code Trent spent hours on just to find a fix to the bug he was running into
+            /*
             switch(i){
                 case 0: p1Icon.setVisible(true);
                         p1Label.setVisible(true);
@@ -129,6 +147,7 @@ public class GameMenuFXMLController implements Initializable {
                         break;
                 default: System.out.println("hi");
             }
+            */
         }
         activeGamePiece.setFill(p1Icon.getFill());
     }
@@ -136,6 +155,17 @@ public class GameMenuFXMLController implements Initializable {
     @FXML
     private void setActivePlayer(){
         for(int i = 0; i<playerCountValue;i++){
+            playerIconArray[i].setFill(playerList.peek());
+            playerList.add(playerList.remove());
+            
+            playerLabelArray[i].setText(playerNameList.peek());
+            playerNameList.add(playerNameList.remove());
+            
+            //Debug print
+            //System.out.println(i);
+            
+            //RIP the code Trent spent hours on just to find a fix to the bug he was running into
+            /*
             switch(i){
                 case 0: 
                         p1Icon.setFill(playerList.peek());
@@ -181,8 +211,11 @@ public class GameMenuFXMLController implements Initializable {
                         break;
                 default: System.out.println("hi");
             }
+            */
         }
-        System.out.println(playerList.peek());
+        //Debug print
+        //System.out.println(playerList.peek());
+        
         activeGamePiece.setFill(p1Icon.getFill());
         
         playerList.add(playerList.remove());
@@ -202,26 +235,14 @@ public class GameMenuFXMLController implements Initializable {
         
         for(int i = 0; i<playerCount; i++){
             playerList.add(playerColors[i]);
-            System.out.printf("color: %s, i: %s\n", playerColors[i], i);
-            switch(i){
-                case 0: playerNameList.add("Player 1");
-                        break;
-                case 1: playerNameList.add("Player 2");
-                        break;
-                case 2: playerNameList.add("Player 3");
-                        break;
-                case 3: playerNameList.add("Player 4");
-                        break;
-                case 4: playerNameList.add("Player 5");
-                        break;
-                case 5: playerNameList.add("Player 6");
-                        break;
-            }
+            //Debug print
+            //System.out.printf("color: %s, i: %s\n", playerColors[i], i);
+            playerNameList.add(String.format("Player %d",i+1));
         }
         playerCountValue = playerCount;
-        System.out.println(playerCountValue);
-        difficultyValue = difficulty;
-        goEnable = goEnabled;
+        
+        //Debug print
+        //System.out.println(playerCountValue);
     }
     
 }
