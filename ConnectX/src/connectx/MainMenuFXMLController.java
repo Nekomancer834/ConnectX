@@ -46,6 +46,7 @@ public class MainMenuFXMLController implements Initializable {
         connectx.GameMenuFXMLController gameWindow = loader.getController();
         Color[] playerColors = {cpP1.getValue(), cpP2.getValue(), cpP3.getValue(), cpP4.getValue(), cpP5.getValue(), cpP6.getValue()};
         gameWindow.setGameVariables(playerColors, Integer.parseInt(playerCount1.getValue().toString()), difficultySlider.getValue(), goFeat.isSelected());
+        gameWindow.setupPlayers();
         
         Stage gameStage = new Stage();
         Scene scene = new Scene(gameRoot, 1280, 720);

@@ -29,19 +29,20 @@ public class GameMenuFXMLController implements Initializable {
     public Pane gameBoardPane;
     public Circle activeGamePiece;
     
-    public Circle playericon1;
-    public Circle playericon2;
-    public Circle playericon3;
-    public Circle playericon4;
-    public Circle playericon5;
-    public Circle playericon6;
+    public Label p1Label;
+    public Label p2Label;
+    public Label p3Label;
+    public Label p4Label;
+    public Label p5Label;
+    public Label p6Label;
     
-    public Label playerLabel1;
-    public Label playerLabel2;
-    public Label playerLabel3;
-    public Label playerLabel4;
-    public Label playerLabel5;
-    public Label playerLabel6;
+    public Circle p1Icon;
+    public Circle p2Icon;
+    public Circle p3Icon;
+    public Circle p4Icon;
+    public Circle p5Icon;
+    public Circle p6Icon;
+    
     
     
     
@@ -69,59 +70,112 @@ public class GameMenuFXMLController implements Initializable {
     private void handleMouseMove(MouseEvent event) {
         //System.out.printf("mouse coordinates: X: %s, Y: %s\n",event.getX(), event.getY());
         activeGamePiece.setLayoutX(event.getX());
-        activeGamePiece.setLayoutY(event.getY());
+        activeGamePiece.setLayoutY(45);
         
+    }
+    
+    
+    
+    public void setupPlayers(){
+        for(int i = 0; i<playerCountValue;i++){
+            switch(i){
+                case 0: p1Icon.setVisible(true);
+                        p1Label.setVisible(true);
+                        p1Icon.setFill(playerList.peek());
+                        playerList.add(playerList.remove());
+                        p1Label.setText(playerNameList.peek());
+                        playerNameList.add(playerNameList.remove());
+                        System.out.println(i);
+                        break;
+                case 1: p2Icon.setVisible(true);
+                        p2Label.setVisible(true);
+                        p2Icon.setFill(playerList.peek());
+                        playerList.add(playerList.remove());
+                        p2Label.setText(playerNameList.peek());
+                        playerNameList.add(playerNameList.remove());
+                        System.out.println(i);
+                        break;
+                case 2: p3Icon.setVisible(true);
+                        p3Label.setVisible(true);
+                        p3Icon.setFill(playerList.peek());
+                        playerList.add(playerList.remove());
+                        p3Label.setText(playerNameList.peek());
+                        playerNameList.add(playerNameList.remove());
+                        System.out.println(i);
+                        break;
+                case 3: p4Icon.setVisible(true);
+                        p4Label.setVisible(true);
+                        p4Icon.setFill(playerList.peek());
+                        playerList.add(playerList.remove());
+                        p4Label.setText(playerNameList.peek());
+                        playerNameList.add(playerNameList.remove());
+                        System.out.println(i);
+                        break;
+                case 4: p5Icon.setVisible(true);
+                        p5Label.setVisible(true);
+                        p5Icon.setFill(playerList.peek());
+                        playerList.add(playerList.remove());
+                        p5Label.setText(playerNameList.peek());
+                        playerNameList.add(playerNameList.remove());
+                        System.out.println(i);
+                        break;
+                case 5: p6Icon.setVisible(true);
+                        p6Label.setVisible(true);
+                        p6Icon.setFill(playerList.peek());
+                        playerList.add(playerList.remove());
+                        p6Label.setText(playerNameList.peek());
+                        playerNameList.add(playerNameList.remove());
+                        System.out.println(i);
+                        break;
+                default: System.out.println("hi");
+            }
+        }
+        activeGamePiece.setFill(p1Icon.getFill());
     }
     
     @FXML
     private void setActivePlayer(){
-        for(int i = 0; i<=playerCountValue;i++){
+        for(int i = 0; i<playerCountValue;i++){
             switch(i){
-                case 0: playericon1.setVisible(true);
-                        playerLabel1.setVisible(true);
-                        playericon1.setFill(playerList.peek());
+                case 0: 
+                        p1Icon.setFill(playerList.peek());
                         playerList.add(playerList.remove());
-                        playerLabel1.setText(playerNameList.peek());
+                        p1Label.setText(playerNameList.peek());
                         playerNameList.add(playerNameList.remove());
                         System.out.println(i);
                         break;
-                case 1: playericon2.setVisible(true);
-                        playerLabel2.setVisible(true);
-                        playericon2.setFill(playerList.peek());
+                case 1: 
+                        p2Icon.setFill(playerList.peek());
                         playerList.add(playerList.remove());
-                        playerLabel2.setText(playerNameList.peek());
+                        p2Label.setText(playerNameList.peek());
                         playerNameList.add(playerNameList.remove());
                         System.out.println(i);
                         break;
-                case 2: playericon3.setVisible(true);
-                        playerLabel3.setVisible(true);
-                        playericon3.setFill(playerList.peek());
+                case 2: 
+                        p3Icon.setFill(playerList.peek());
                         playerList.add(playerList.remove());
-                        playerLabel3.setText(playerNameList.peek());
+                        p3Label.setText(playerNameList.peek());
                         playerNameList.add(playerNameList.remove());
                         System.out.println(i);
                         break;
-                case 3: playericon4.setVisible(true);
-                        playerLabel4.setVisible(true);
-                        playericon4.setFill(playerList.peek());
+                case 3: 
+                        p4Icon.setFill(playerList.peek());
                         playerList.add(playerList.remove());
-                        playerLabel4.setText(playerNameList.peek());
+                        p4Label.setText(playerNameList.peek());
                         playerNameList.add(playerNameList.remove());
                         System.out.println(i);
                         break;
-                case 4: playericon5.setVisible(true);
-                        playerLabel5.setVisible(true);
-                        playericon5.setFill(playerList.peek());
+                case 4: 
+                        p5Icon.setFill(playerList.peek());
                         playerList.add(playerList.remove());
-                        playerLabel5.setText(playerNameList.peek());
+                        p5Label.setText(playerNameList.peek());
                         playerNameList.add(playerNameList.remove());
                         System.out.println(i);
                         break;
-                case 5: playericon6.setVisible(true);
-                        playerLabel6.setVisible(true);
-                        playericon6.setFill(playerList.peek());
+                case 5: 
+                        p6Icon.setFill(playerList.peek());
                         playerList.add(playerList.remove());
-                        playerLabel6.setText(playerNameList.peek());
+                        p6Label.setText(playerNameList.peek());
                         playerNameList.add(playerNameList.remove());
                         System.out.println(i);
                         break;
@@ -129,21 +183,19 @@ public class GameMenuFXMLController implements Initializable {
             }
         }
         System.out.println(playerList.peek());
-        activeGamePiece.setFill(playericon1.getFill());
+        activeGamePiece.setFill(p1Icon.getFill());
         
         playerList.add(playerList.remove());
         playerNameList.add(playerNameList.remove());
         
         //activeGamePiece.setFill(playerList.peek());
     }
+    
     @FXML
-    private void onMouseClick(String currentPlayer){
-        //check if mouse in valid position
-        //if yes 
-            //place piece below mouse
-            //call method to update whose turn it is
-            //
-        //if no do nothing
+    private void onMouseClick(){
+        //add piece to backend piece tracker
+        //update board with information from backend piece tracker
+        setActivePlayer();
         
     }
     public void setGameVariables(Color[] playerColors, int playerCount, double difficulty, boolean goEnabled){
@@ -151,13 +203,21 @@ public class GameMenuFXMLController implements Initializable {
         for(int i = 0; i<playerCount; i++){
             playerList.add(playerColors[i]);
             System.out.printf("color: %s, i: %s\n", playerColors[i], i);
+            switch(i){
+                case 0: playerNameList.add("Player 1");
+                        break;
+                case 1: playerNameList.add("Player 2");
+                        break;
+                case 2: playerNameList.add("Player 3");
+                        break;
+                case 3: playerNameList.add("Player 4");
+                        break;
+                case 4: playerNameList.add("Player 5");
+                        break;
+                case 5: playerNameList.add("Player 6");
+                        break;
+            }
         }
-        playerNameList.add("Player 1");
-        playerNameList.add("Player 2");
-        playerNameList.add("Player 3");
-        playerNameList.add("Player 4");
-        playerNameList.add("Player 5");
-        playerNameList.add("Player 6");
         playerCountValue = playerCount;
         System.out.println(playerCountValue);
         difficultyValue = difficulty;
