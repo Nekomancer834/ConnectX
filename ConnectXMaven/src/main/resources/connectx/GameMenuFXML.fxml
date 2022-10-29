@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="1080.0" maxWidth="1920.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="connectx.GameMenuFXMLController">
+   <children>
+      <GridPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: grey;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="635.0" minWidth="10.0" prefWidth="180.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1080.0" minWidth="10.0" prefWidth="1100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="235.0" minHeight="0.0" prefHeight="85.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="640.0" minHeight="10.0" prefHeight="640.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Rectangle fx:id="boardBackground" arcHeight="5.0" arcWidth="5.0" fill="#0026ff" height="640.0" stroke="BLACK" strokeType="INSIDE" width="1080.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Pane fx:id="boardPane" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Pane fx:id="aboveBoardPane" onMouseClicked="#onMouseClick" onMouseMoved="#handleMouseMove" GridPane.columnIndex="1" GridPane.rowSpan="2" GridPane.valignment="TOP">
+               <children>
+                  <Circle fx:id="activeGamePiece" fill="DODGERBLUE" layoutX="50.0" layoutY="45.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+               </children></Pane>
+            <Pane fx:id="playerListPane" prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="2">
+               <children>
+                  <Label fx:id="p1Label" layoutX="14.0" layoutY="26.0" style="-fx-font-size: 24;" text="Player 1" visible="true" />
+                  <Circle fx:id="p1Icon" fill="DODGERBLUE" layoutX="147.0" layoutY="45.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="true" />
+                  <Label fx:id="p2Label" layoutX="14.0" layoutY="106.0" style="-fx-font-size: 24;" text="Player 2" visible="true" />
+                  <Circle fx:id="p2Icon" fill="DODGERBLUE" layoutX="147.0" layoutY="125.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="true" />
+                  <Label fx:id="p3Label" layoutX="14.0" layoutY="186" style="-fx-font-size: 24;" text="Player 3" visible="false" />
+                  <Circle fx:id="p3Icon" fill="DODGERBLUE" layoutX="147.0" layoutY="205" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Label fx:id="p4Label" layoutX="14.0" layoutY="266" style="-fx-font-size: 24;" text="Player 4" visible="false" />
+                  <Circle fx:id="p4Icon" fill="DODGERBLUE" layoutX="147.0" layoutY="285" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Label fx:id="p5Label" layoutX="14.0" layoutY="346" style="-fx-font-size: 24;" text="Player 5" visible="false" />
+                  <Circle fx:id="p5Icon" fill="DODGERBLUE" layoutX="147.0" layoutY="365" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Label fx:id="p6Label" layoutX="14.0" layoutY="426" style="-fx-font-size: 24;" text="Player 6" visible="false" />
+                  <Circle fx:id="p6Icon" fill="DODGERBLUE" layoutX="147.0" layoutY="445" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+                  <Button layoutX="42.0" layoutY="595.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="111.0" text="End Turn" />
+                  <Button layoutX="42.0" layoutY="656.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="111.0" text="End Game" />
+               </children></Pane>
+            <Pane fx:id="boardDotsPane" layoutX="210.0" layoutY="92.0" prefHeight="640.0" prefWidth="1080.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <children>
+                <Circle fx:id="icon1" fill="ffffff" layoutX="50.330000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon2" fill="ffffff" layoutX="125.660000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon3" fill="ffffff" layoutX="200.990000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon4" fill="ffffff" layoutX="276.320000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon5" fill="ffffff" layoutX="351.650000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon6" fill="ffffff" layoutX="426.980000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon7" fill="ffffff" layoutX="502.310000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon8" fill="ffffff" layoutX="577.640000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon9" fill="ffffff" layoutX="652.970000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon10" fill="ffffff" layoutX="728.300000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon11" fill="ffffff" layoutX="803.630000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon12" fill="ffffff" layoutX="878.960000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon13" fill="ffffff" layoutX="954.290000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon14" fill="ffffff" layoutX="1029.620000" layoutY="28.080000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon15" fill="ffffff" layoutX="50.330000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon16" fill="ffffff" layoutX="125.660000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon17" fill="ffffff" layoutX="200.990000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon18" fill="ffffff" layoutX="276.320000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon19" fill="ffffff" layoutX="351.650000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon20" fill="ffffff" layoutX="426.980000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon21" fill="ffffff" layoutX="502.310000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon22" fill="ffffff" layoutX="577.640000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon23" fill="ffffff" layoutX="652.970000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon24" fill="ffffff" layoutX="728.300000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon25" fill="ffffff" layoutX="803.630000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon26" fill="ffffff" layoutX="878.960000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon27" fill="ffffff" layoutX="954.290000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon28" fill="ffffff" layoutX="1029.620000" layoutY="81.160000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon29" fill="ffffff" layoutX="50.330000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon30" fill="ffffff" layoutX="125.660000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon31" fill="ffffff" layoutX="200.990000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon32" fill="ffffff" layoutX="276.320000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon33" fill="ffffff" layoutX="351.650000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon34" fill="ffffff" layoutX="426.980000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon35" fill="ffffff" layoutX="502.310000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon36" fill="ffffff" layoutX="577.640000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon37" fill="ffffff" layoutX="652.970000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon38" fill="ffffff" layoutX="728.300000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon39" fill="ffffff" layoutX="803.630000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon40" fill="ffffff" layoutX="878.960000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon41" fill="ffffff" layoutX="954.290000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon42" fill="ffffff" layoutX="1029.620000" layoutY="134.240000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon43" fill="ffffff" layoutX="50.330000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon44" fill="ffffff" layoutX="125.660000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon45" fill="ffffff" layoutX="200.990000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon46" fill="ffffff" layoutX="276.320000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon47" fill="ffffff" layoutX="351.650000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon48" fill="ffffff" layoutX="426.980000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon49" fill="ffffff" layoutX="502.310000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon50" fill="ffffff" layoutX="577.640000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon51" fill="ffffff" layoutX="652.970000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon52" fill="ffffff" layoutX="728.300000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon53" fill="ffffff" layoutX="803.630000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon54" fill="ffffff" layoutX="878.960000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon55" fill="ffffff" layoutX="954.290000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon56" fill="ffffff" layoutX="1029.620000" layoutY="187.320000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon57" fill="ffffff" layoutX="50.330000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon58" fill="ffffff" layoutX="125.660000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon59" fill="ffffff" layoutX="200.990000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon60" fill="ffffff" layoutX="276.320000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon61" fill="ffffff" layoutX="351.650000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon62" fill="ffffff" layoutX="426.980000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon63" fill="ffffff" layoutX="502.310000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon64" fill="ffffff" layoutX="577.640000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon65" fill="ffffff" layoutX="652.970000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon66" fill="ffffff" layoutX="728.300000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon67" fill="ffffff" layoutX="803.630000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon68" fill="ffffff" layoutX="878.960000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon69" fill="ffffff" layoutX="954.290000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon70" fill="ffffff" layoutX="1029.620000" layoutY="240.400000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon71" fill="ffffff" layoutX="50.330000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon72" fill="ffffff" layoutX="125.660000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon73" fill="ffffff" layoutX="200.990000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon74" fill="ffffff" layoutX="276.320000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon75" fill="ffffff" layoutX="351.650000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon76" fill="ffffff" layoutX="426.980000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon77" fill="ffffff" layoutX="502.310000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon78" fill="ffffff" layoutX="577.640000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon79" fill="ffffff" layoutX="652.970000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon80" fill="ffffff" layoutX="728.300000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon81" fill="ffffff" layoutX="803.630000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon82" fill="ffffff" layoutX="878.960000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon83" fill="ffffff" layoutX="954.290000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon84" fill="ffffff" layoutX="1029.620000" layoutY="293.480000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon85" fill="ffffff" layoutX="50.330000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon86" fill="ffffff" layoutX="125.660000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon87" fill="ffffff" layoutX="200.990000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon88" fill="ffffff" layoutX="276.320000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon89" fill="ffffff" layoutX="351.650000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon90" fill="ffffff" layoutX="426.980000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon91" fill="ffffff" layoutX="502.310000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon92" fill="ffffff" layoutX="577.640000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon93" fill="ffffff" layoutX="652.970000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon94" fill="ffffff" layoutX="728.300000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon95" fill="ffffff" layoutX="803.630000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon96" fill="ffffff" layoutX="878.960000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon97" fill="ffffff" layoutX="954.290000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon98" fill="ffffff" layoutX="1029.620000" layoutY="346.560000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon99" fill="ffffff" layoutX="50.330000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon100" fill="ffffff" layoutX="125.660000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon101" fill="ffffff" layoutX="200.990000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon102" fill="ffffff" layoutX="276.320000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon103" fill="ffffff" layoutX="351.650000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon104" fill="ffffff" layoutX="426.980000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon105" fill="ffffff" layoutX="502.310000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon106" fill="ffffff" layoutX="577.640000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon107" fill="ffffff" layoutX="652.970000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon108" fill="ffffff" layoutX="728.300000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon109" fill="ffffff" layoutX="803.630000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon110" fill="ffffff" layoutX="878.960000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon111" fill="ffffff" layoutX="954.290000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon112" fill="ffffff" layoutX="1029.620000" layoutY="399.640000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon113" fill="ffffff" layoutX="50.330000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon114" fill="ffffff" layoutX="125.660000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon115" fill="ffffff" layoutX="200.990000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon116" fill="ffffff" layoutX="276.320000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon117" fill="ffffff" layoutX="351.650000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon118" fill="ffffff" layoutX="426.980000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon119" fill="ffffff" layoutX="502.310000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon120" fill="ffffff" layoutX="577.640000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon121" fill="ffffff" layoutX="652.970000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon122" fill="ffffff" layoutX="728.300000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon123" fill="ffffff" layoutX="803.630000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon124" fill="ffffff" layoutX="878.960000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon125" fill="ffffff" layoutX="954.290000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon126" fill="ffffff" layoutX="1029.620000" layoutY="452.720000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon127" fill="ffffff" layoutX="50.330000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon128" fill="ffffff" layoutX="125.660000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon129" fill="ffffff" layoutX="200.990000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon130" fill="ffffff" layoutX="276.320000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon131" fill="ffffff" layoutX="351.650000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon132" fill="ffffff" layoutX="426.980000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon133" fill="ffffff" layoutX="502.310000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon134" fill="ffffff" layoutX="577.640000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon135" fill="ffffff" layoutX="652.970000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon136" fill="ffffff" layoutX="728.300000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon137" fill="ffffff" layoutX="803.630000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon138" fill="ffffff" layoutX="878.960000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon139" fill="ffffff" layoutX="954.290000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon140" fill="ffffff" layoutX="1029.620000" layoutY="505.800000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon141" fill="ffffff" layoutX="50.330000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon142" fill="ffffff" layoutX="125.660000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon143" fill="ffffff" layoutX="200.990000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon144" fill="ffffff" layoutX="276.320000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon145" fill="ffffff" layoutX="351.650000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon146" fill="ffffff" layoutX="426.980000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon147" fill="ffffff" layoutX="502.310000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon148" fill="ffffff" layoutX="577.640000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon149" fill="ffffff" layoutX="652.970000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon150" fill="ffffff" layoutX="728.300000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon151" fill="ffffff" layoutX="803.630000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon152" fill="ffffff" layoutX="878.960000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon153" fill="ffffff" layoutX="954.290000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon154" fill="ffffff" layoutX="1029.620000" layoutY="558.880000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon155" fill="ffffff" layoutX="50.330000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon156" fill="ffffff" layoutX="125.660000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon157" fill="ffffff" layoutX="200.990000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon158" fill="ffffff" layoutX="276.320000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon159" fill="ffffff" layoutX="351.650000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon160" fill="ffffff" layoutX="426.980000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon161" fill="ffffff" layoutX="502.310000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon162" fill="ffffff" layoutX="577.640000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon163" fill="ffffff" layoutX="652.970000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon164" fill="ffffff" layoutX="728.300000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon165" fill="ffffff" layoutX="803.630000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon166" fill="ffffff" layoutX="878.960000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon167" fill="ffffff" layoutX="954.290000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+<Circle fx:id="icon168" fill="ffffff" layoutX="1029.620000" layoutY="611.960000" radius="25.000000" stroke="BLACK" strokeType="INSIDE" />
+              </children>
+            </Pane>
+         </children>
+      </GridPane>
+   </children>
+</Pane>

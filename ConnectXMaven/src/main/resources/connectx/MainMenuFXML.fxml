@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="connectx.MainMenuFXMLController">
+   <children>
+      <Button id="startGame" layoutX="369.0" layoutY="309.0" mnemonicParsing="false" onAction="#startGameAction" text="Start Game" />
+      <Label layoutX="233.0" layoutY="113.0" style="-fx-font-size: 24;" text="Player Count" />
+      <ImageView fitHeight="99.0" fitWidth="503.0" layoutX="49.0" layoutY="14.0">
+         <image>
+            <Image url="@../connectx/ConnectXLogo.png" />
+         </image>
+      </ImageView>
+      <ChoiceBox fx:id="playerCount1" layoutX="384.0" layoutY="118.0" prefWidth="150.0" value="2">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="2" />
+              <String fx:value="3" />
+              <String fx:value="4" />
+              <String fx:value="5" />
+              <String fx:value="6" />
+            </FXCollections>
+          </items>
+      </ChoiceBox>
+      <Label fx:id="p1" layoutX="25.0" layoutY="161.0" text="Player 1" />
+      <ColorPicker id="colorpickerP1" fx:id="cpP1" layoutX="84.0" layoutY="165.0" promptText="p1" />
+      <ColorPicker fx:id="cpP2" layoutX="84.0" layoutY="196.0" />
+      <Label id="p2" layoutX="25.0" layoutY="192.0" text="Player 2" />
+      <Label id="p4" layoutX="25.0" layoutY="252.0" text="Player 4" />
+      <ColorPicker fx:id="cpP4" layoutX="84.0" layoutY="256.0" />
+      <ColorPicker fx:id="cpP3" layoutX="84.0" layoutY="226.0" />
+      <Label id="p3" layoutX="25.0" layoutY="222.0" text="Player 3" />
+      <Label id="p5" layoutX="25.0" layoutY="282.0" text="Player 5" />
+      <ColorPicker fx:id="cpP5" layoutX="84.0" layoutY="286.0" />
+      <ColorPicker fx:id="cpP6" layoutX="84.0" layoutY="317.0" />
+      <Label id="p6" layoutX="25.0" layoutY="313.0" text="Player 6" />
+      <Separator layoutX="213.0" layoutY="108.0" orientation="VERTICAL" prefHeight="291.0" prefWidth="6.0" />
+      <Label id="difficulty" layoutX="253.0" layoutY="173.0" style="-fx-font-size: 24;" text="Difficulty" />
+      <Slider fx:id="difficultySlider" blockIncrement="1.0" layoutX="389.0" layoutY="180.0" majorTickUnit="1.0" max="2.0" minorTickCount="0" showTickMarks="true" snapToTicks="true" />
+      <Label layoutX="384.0" layoutY="201.0" text="Easy" />
+      <Label layoutX="439.0" layoutY="201.0" text="Normal" />
+      <Label layoutX="508.0" layoutY="201.0" text="Hard" />
+      <Label layoutX="240.0" layoutY="235.0" style="-fx-font-size: 24;" text="GO Feature" />
+      <CheckBox id="goFeat" fx:id="goFeat" layoutX="430.0" layoutY="245.0" mnemonicParsing="false" text="Enable" />
+   </children>
+</Pane>

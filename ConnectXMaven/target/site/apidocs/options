@@ -1,0 +1,30 @@
+--class-path
+'C:/Users/Trent/.m2/repository/org/openjfx/javafx-controls/12.0.2/javafx-controls-12.0.2.jar;C:/Users/Trent/.m2/repository/org/openjfx/javafx-graphics/12.0.2/javafx-graphics-12.0.2.jar;C:/Users/Trent/.m2/repository/org/openjfx/javafx-base/12.0.2/javafx-base-12.0.2.jar;C:/Users/Trent/.m2/repository/org/openjfx/javafx-fxml/12.0.2/javafx-fxml-12.0.2.jar'
+--module-path
+'C:/Users/Trent/.m2/repository/org/openjfx/javafx-fxml/12.0.2/javafx-fxml-12.0.2-win.jar;C:/Users/Trent/.m2/repository/org/openjfx/javafx-graphics/12.0.2/javafx-graphics-12.0.2-win.jar;C:/Users/Trent/.m2/repository/org/openjfx/javafx-controls/12.0.2/javafx-controls-12.0.2-win.jar;C:/Users/Trent/.m2/repository/org/openjfx/javafx-base/12.0.2/javafx-base-12.0.2-win.jar;F:/CODE/ConnectXMaven/target/classes'
+--patch-module
+connectx='F:/CODE/ConnectXMaven/src/main/java'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+--module-source-path
+'F:/CODE/ConnectXMaven/target/site/apidocs/src'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'F:/CODE/ConnectXMaven/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'ConnectXMaven 1.0-alpha API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' 'F:/CODE/ConnectXMaven/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'ConnectXMaven 1.0-alpha API'
