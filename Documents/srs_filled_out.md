@@ -322,7 +322,19 @@ Activity Diagram\
 \
 \
 Sequence Diagram\
-![Sequence Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/Sequence%20Diagram.png?raw=true)
+![Sequence Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/Sequence%20Diagram.png?raw=true)\
+\
+\
+\
+Class Diagram\
+![Class Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/Class%20Diagram.png?raw=true)\
+\
+\
+\
+State Machine Diagram\
+![State Machine Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/state%20machine%20diagram.png?raw=true)\
+\
+
 
 ## Appendix C: Issues List
 TBD - Game engine
