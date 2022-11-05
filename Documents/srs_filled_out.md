@@ -264,7 +264,7 @@ Main Menu
 - color selection boxes
 - toggle (go feature)
 
-![main menu](https://github.com/Nekomancer834/ConnectX/blob/main/Main-Menu.png?raw=true)
+![main menu](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/Main-Menu.png?raw=true)
 
 Game Menu
 - 16:9
