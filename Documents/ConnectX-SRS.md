@@ -279,12 +279,12 @@ Game Menu
 - error message box above board
 
 old game menu\
-![game menu idea 1](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Game%20UI%20layout%20idea1.png?raw=true)\
+![game menu v1](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/Game-Menu-v1.png?raw=true)\
 \
 \
 \
 current game menu\
-![game menu v1](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/Game-Menu-v1.png?raw=true)
+![game menu v2](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/Game-Menu-v2.png?raw=true)
 
 ### 4.2 Hardware Interfaces
 This software uses the standard java interfaces.
