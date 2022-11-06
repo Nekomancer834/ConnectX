@@ -199,7 +199,7 @@ REQ-1: drop-down with player count values
 
 #### 3.4.1 Description and Priority
 
-The players will artificially be able to make the board smaller than it should be for the number of players present making it much more difficult to win before the board is full 
+The players will artificially be able to make the board smaller than it should be for the number of players present making it much more difficult to win before the board is full. The difficulty will be calculated by taking into account the number of players in the game and also the value of the difficulty slider to return a board size that may be different than the board size needed to host 6 players. 
 
 #### 3.4.2 Stimulus/Response Sequences
 
@@ -274,8 +274,6 @@ second iteration main menu\
 Game Menu
 - 16:9
 - one panel on left
-- end game button
-- end turn button
 - help button
 - player list
 - error message box above board
@@ -348,13 +346,10 @@ State Machine Diagram\
 
 
 ## Appendix C: Issues List
-TBD - Game engine
-
-* JavaFX seems like a good choice as it can be integrated into swing UIs that we have been using in class
-* Information is needed to determine if we should continue looking into JavaFX or something else such as libGDX
 
 TBD - piece tracking
 * for game piece tracking and win condition checking, 2D arrays and linked lists seem equally able to be used however one might be more efficient so we need to look into these
 
-TBD - Game menu layout
-* The UI for the game menu can be set up multiple ways that seem to be equally user friendly so we should decide on that
+TBD - Game menu missing planned features
+* several features outlined in 4.1 such as a help button and error message box are missing from the game board UI. This should be re-evaluated to determine if these are really necessary and if so they should be implemented.
+
