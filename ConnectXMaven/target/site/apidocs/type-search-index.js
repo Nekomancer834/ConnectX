@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"connectx","l":"ConnectX"},{"p":"connectx","l":"GameMenuFXMLController"},{"p":"connectx","l":"Launcher"},{"p":"connectx","l":"MainMenuFXMLController"}];updateSearchResults();

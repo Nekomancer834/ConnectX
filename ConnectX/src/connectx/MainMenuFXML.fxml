@@ -45,6 +45,9 @@
       <Label layoutX="439.0" layoutY="201.0" text="Normal" />
       <Label layoutX="508.0" layoutY="201.0" text="Hard" />
       <Label layoutX="240.0" layoutY="235.0" style="-fx-font-size: 24;" text="GO Feature" />
-      <CheckBox id="goFeat" fx:id="goFeat" layoutX="430.0" layoutY="245.0" mnemonicParsing="false" text="Enable" />
+      <Slider fx:id="goSlider" blockIncrement="1.0" layoutX="389.0" layoutY="244.0" majorTickUnit="1.0" max="2.0" minorTickCount="0" showTickMarks="true" snapToTicks="true" value="1.0" />
+      <Label layoutX="514.0" layoutY="273.0" text="All" />
+      <Label layoutX="437.0" layoutY="273.0" text="Random" />
+      <Label layoutX="381.0" layoutY="273.0" text="None" />
    </children>
 </Pane>

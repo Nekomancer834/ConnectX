@@ -4,6 +4,9 @@
  */
 package connectx;
 
+import java.io.File;
+import java.net.URL;
+import java.util.Enumeration;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,18 +21,19 @@ public class ConnectX extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoad = new FXMLLoader(getClass().getResource("MainMenuFXML.fxml"));
-        Parent root = fxmlLoad.load();
-        Scene scene = new Scene(root, 600, 480);
-        
-        stage.setScene(scene);
-        stage.show();
+            FXMLLoader fxmlLoad = new FXMLLoader(getClass().getResource("MainMenuFXML.fxml"));
+            Parent root = fxmlLoad.load();
+            Scene scene = new Scene(root, 600, 480);
+
+            stage.setScene(scene);
+            stage.show();
     }
 
     /*
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         launch(args);
     }
     

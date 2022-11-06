@@ -231,7 +231,7 @@ public class GameMenuFXMLController implements Initializable {
         setActivePlayer();
         
     }
-    public void setGameVariables(Color[] playerColors, int playerCount, double difficulty, boolean goEnabled){
+    public void setGameVariables(Color[] playerColors, int playerCount, double difficulty, double goSlider){
         
         for(int i = 0; i<playerCount; i++){
             playerList.add(playerColors[i]);

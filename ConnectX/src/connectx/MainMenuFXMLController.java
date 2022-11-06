@@ -25,7 +25,7 @@ public class MainMenuFXMLController implements Initializable {
     public Label p1;
     public ChoiceBox playerCount1;
     public Slider difficultySlider;
-    public CheckBox goFeat;
+    public Slider goSlider;
     public ColorPicker cpP1;
     public ColorPicker cpP2;
     public ColorPicker cpP3;
@@ -38,14 +38,14 @@ public class MainMenuFXMLController implements Initializable {
     
     @FXML
     private void startGameAction(ActionEvent event) throws Exception{
-        System.out.printf("passed values:\nplayer one   color: %s\nplayer two   color: %s\nplayer three color: %s\nplayer four  color: %s\nplayer five  color: %s\nplayer six   color: %s\nnumber of players: %s \ndifficulty: %s \ngo toggle: %s\n", cpP1.getValue(), cpP2.getValue(), cpP3.getValue(), cpP4.getValue(), cpP5.getValue(), cpP6.getValue(), playerCount1.getValue(), difficultySlider.getValue(), goFeat.isSelected());
+        System.out.printf("passed values:\nplayer one   color: %s\nplayer two   color: %s\nplayer three color: %s\nplayer four  color: %s\nplayer five  color: %s\nplayer six   color: %s\nnumber of players: %s \ndifficulty: %s \ngo toggle: %s\n", cpP1.getValue(), cpP2.getValue(), cpP3.getValue(), cpP4.getValue(), cpP5.getValue(), cpP6.getValue(), playerCount1.getValue(), difficultySlider.getValue(), goSlider.getValue());
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("GameMenuFXML.fxml"));
         
         Parent gameRoot = loader.load();
         connectx.GameMenuFXMLController gameWindow = loader.getController();
         Color[] playerColors = {cpP1.getValue(), cpP2.getValue(), cpP3.getValue(), cpP4.getValue(), cpP5.getValue(), cpP6.getValue()};
-        gameWindow.setGameVariables(playerColors, Integer.parseInt(playerCount1.getValue().toString()), difficultySlider.getValue(), goFeat.isSelected());
+        gameWindow.setGameVariables(playerColors, Integer.parseInt(playerCount1.getValue().toString()), difficultySlider.getValue(), goSlider.getValue());
         gameWindow.setupPlayers();
         
         Stage gameStage = new Stage();

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>connectx</groupId>
     <artifactId>ConnectXMaven</artifactId>
-    <version>1.0-alpha</version>
+    <version>1.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>

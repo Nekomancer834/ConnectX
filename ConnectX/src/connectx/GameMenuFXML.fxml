@@ -37,8 +37,7 @@
                   <Circle fx:id="p5Icon" fill="DODGERBLUE" layoutX="147.0" layoutY="365" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
                   <Label fx:id="p6Label" layoutX="14.0" layoutY="426" style="-fx-font-size: 24;" text="Player 6" visible="false" />
                   <Circle fx:id="p6Icon" fill="DODGERBLUE" layoutX="147.0" layoutY="445" radius="25.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
-                  <Button layoutX="42.0" layoutY="595.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="111.0" text="End Turn" />
-                  <Button layoutX="42.0" layoutY="656.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="111.0" text="End Game" />
+                  
                </children></Pane>
             <Pane fx:id="boardDotsPane" layoutX="210.0" layoutY="92.0" prefHeight="640.0" prefWidth="1080.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <children>
