@@ -321,7 +321,7 @@ N/A = Not Applicable
 
 ## Appendix B: Analysis Models
 Use Case Diagram\
-![Use Case Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/Activity%20Diagram.png?raw=true)\
+![Use Case Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/Use%20Case%20Diagram.png?raw=true)\
 \
 \
 \
@@ -342,7 +342,7 @@ Class Diagram\
 \
 State Machine Diagram\
 ![State Machine Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/state%20machine%20diagram.png?raw=true)\
-\
+
 
 
 ## Appendix C: Issues List
