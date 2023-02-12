@@ -1,0 +1,158 @@
+
+test.png
+size: 2048, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+48x48test
+  rotate: false
+  xy: 1954, 1926
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+64x64test
+  rotate: false
+  xy: 1954, 1976
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+96x96testGO
+  rotate: false
+  xy: 1856, 1944
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+96x96test
+  rotate: false
+  xy: 1856, 1944
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+ConnectXLogo
+  rotate: false
+  xy: 2, 2
+  size: 713, 132
+  orig: 713, 132
+  offset: 0, 0
+  index: -1
+backgroundTexture
+  rotate: false
+  xy: 2, 238
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1
+backgroundTexture2
+  rotate: false
+  xy: 2, 1140
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1
+blankBar
+  rotate: false
+  xy: 2, 136
+  size: 1600, 100
+  orig: 1600, 100
+  offset: 0, 0
+  index: -1
+meRN
+  rotate: false
+  xy: 1604, 1790
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+titleButtonRed
+  rotate: false
+  xy: 1319, 34
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+titleButtonYellowRight
+  rotate: false
+  xy: 717, 34
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+
+test2.png
+size: 2048, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+GradientBar
+  rotate: false
+  xy: 2, 144
+  size: 750, 60
+  orig: 750, 60
+  offset: 0, 0
+  index: -1
+background2Texture
+  rotate: false
+  xy: 2, 1108
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1
+optionBackgroundTexture
+  rotate: false
+  xy: 2, 206
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1
+titleButtonRedRight
+  rotate: false
+  xy: 754, 104
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+titleButtonWhite
+  rotate: false
+  xy: 604, 2
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+titleButtonYellow
+  rotate: false
+  xy: 2, 42
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+
+test3.png
+size: 2048, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+Color-Test
+  rotate: false
+  xy: 2, 2
+  size: 800, 800
+  orig: 800, 800
+  offset: 0, 0
+  index: -1
+playerListBackground
+  rotate: false
+  xy: 804, 2
+  size: 680, 800
+  orig: 680, 800
+  offset: 0, 0
+  index: -1
+settingBackground
+  rotate: false
+  xy: 2, 804
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1

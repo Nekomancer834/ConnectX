@@ -1,0 +1,41 @@
+
+custom.png
+size: 1024, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+ASAP
+  rotate: false
+  xy: 1, 1
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+titleButtonRed
+  rotate: false
+  xy: 1, 821
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+titleButtonRedRight
+  rotate: false
+  xy: 1, 617
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+titleButtonYellow
+  rotate: false
+  xy: 1, 719
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+titleButtonYellowRight
+  rotate: false
+  xy: 1, 515
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1

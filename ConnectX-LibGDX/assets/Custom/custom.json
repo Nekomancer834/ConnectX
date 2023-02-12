@@ -1,0 +1,32 @@
+{
+BitmapFont: {
+	ASAPfnt: {
+		file: ASAP.fnt
+		scaledSize: -1
+		markupEnabled: false
+		flip: false
+	}
+}
+Color: {
+	Black: {
+		r: 0
+		g: 0
+		b: 0
+		a: 1
+	}
+}
+TextButtonStyle: {
+	default: {
+		font: ASAPfnt
+		up: titleButtonYellow
+		down: titleButtonRed
+		over: titleButtonRed
+	}
+	right: {
+		font: ASAPfnt
+		up: titleButtonYellowRight
+		down: titleButtonRedRight
+		over: titleButtonRedRight
+	}
+}
+}
