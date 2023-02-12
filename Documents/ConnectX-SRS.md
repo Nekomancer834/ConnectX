@@ -82,11 +82,11 @@ https://whatsgoodtodo.co.uk/official-hasbro-giant-connect-4-review/ for the pict
 
 ### 2.1 Product Perspective
 
-Connect X is a replacement for the original Connect 4 game by Hasbro. This is because it will have a 2 player mode where the users can disable the new feature and play on the same board size as the original game. This product can also be considered a self-contained product if the user does not use the original features provided by the game Connect 4 which includes the bigger board, GO piece, and difficulty scaling.
+Connect X is a replacement for the original Connect 4 game by Hasbro. This is because it will have a 2 player mode where the users can disable the new feature and play on the same board size as the original game. This product can also be considered a self-contained product if the user does not use the original features provided by the game Connect 4 which includes the bigger board, GO piece, and board scaling.
 
 ### 2.2 Product Features
 
-This game will have 3 major features. The first major feature is the ability for more than 2 players to play on the same board. The second major feature provided by this software will be the ability to have difficulty scaling through the use of adjustable board sizes and game features. The third feature of Connect X GO is the new GO piece. This piece will add the feature of capturing pieces from the board game Go. Instead of the captured piece being removed from the board, it is instead turned into a piece of the surrounding color. This is to prevent modifying the game too much by dropping all the pieces in the column. This piece increases you chances of winning while decreasing your opponents chances of winning. The Go piece will be added to the game through a slider containing 3 different distribution modes: none, random, and all. This will add an additional level of complexity to the game while also allowing for less intense games if desired.
+This game will have 3 major features. The first major feature is the ability for more than 2 players to play on the same board. The second major feature provided by this software will be the ability to have difficulty scaling through the use of adjustable board sizes and game features. The third feature of Connect X GO is the new GO piece. This piece will add the feature of capturing pieces similar to the board game Go. Instead of the captured piece being removed from the board, it is instead turned into a piece of the surrounding color. This is to prevent modifying the game too much by dropping all the pieces in the column down a space. This piece increases your chances of winning while simultaneously adding pressure for the other players. The Go piece will be added to the game through a slider containing 3 different distribution modes: none, random, and all. This will add an additional level of complexity to the game while also allowing for less intense games if desired.
 
 ### 2.3 User Classes and Characteristics
 
@@ -106,23 +106,23 @@ Younger than teens
 * more likely to play in bigger group
 
 New Players
-* Not likely to stick to strategies seen in old software
+* Not likely to stick to strategies seen in old software / physical games
 * the probability of playing this rather than other games is higher
 
 ### 2.4 Operating Environment
 
-This game will run on laptops and desktops. The game will run on any operating system capable of running Java 1.8 or higher.
+This game will run on laptops and desktops. The game will run on any x86 operating system capable of running Java 1.8 or higher.
 
 ### 2.5 Design and Implementation Constraints
 
 This software should run within the limit of 1GB of ram allocated to the program.
 The program runs on java therefore the hardware also needs to be capable of running java.
+The device needs to be capable of rendering openGL windows.
 More limits will become apparent as development progresses.
 
 ### 2.6 User Documentation
 
-A demonstration video showing how the game works and the features of the new piece.
-PDF guide to show basic functionality
+PDF guide to show basic functionality of the game as well as how to utilize new pieces added
 
 ### 2.7 Assumptions and Dependencies
 
@@ -160,10 +160,10 @@ Response: the program sets internal variables based on the provided information 
 #### 3.1.3 Functional Requirements
 
 REQ-1: buttons for each player’s color\
-REQ-2: drop-down menu for player count\
-REQ-3: slider for difficulty\
+REQ-2: slider for player count\
+REQ-3: slider for board scale\
 REQ-4: start game button\
-REQ-5: Go feature toggle
+REQ-5: slider for GO feature
 
 ### 3.2 Player Color Selection
 
@@ -231,7 +231,6 @@ Response: the program will return to the main menu
 
 #### 3.5.3 Functional Requirements
 REQ-1: game board\
-REQ-2: end turn button\
 REQ-3: end game button\
 REQ-4: end game confirmation
 
@@ -243,7 +242,7 @@ The game board is where the players will place their respective pieces and visua
 #### 3.6.2 Stimulus/Response Sequences
 
 Stimulus: the player will click above a column\
-Response: the game will place their piece at the lowest space in the column that is not occupied to simulate gravity
+Response: the game will place their piece at the lowest space in the column that is not occupied, to simulate gravity
 
 #### 3.6.3 Functional Requirements
 
@@ -254,37 +253,41 @@ REQ-3: fake gravity
 ## 4. External Interface Requirements
 
 ### 4.1 User Interfaces
-Main Menu
-- 16:9 or 4:3 aspect ratio
-- selection slider for difficulty (low medium high)
-- drop down menu for player count
-- start game button
+Title Screen
+- 16:9 aspect ratio
+- start button
 - help button
+- quit button
+- logo
+- background image
+
+Title Screen\
+![Title Screen UI](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/UI/Title-Screen.png?raw=true)
+
+Setup Menu
+- 16:9 aspect ratio
+- selection slider for player count
+- selection slider for board scaling (-2 through +2)
+- selection slider for GO feature (none, some, and all)
 - color selection boxes
-- toggle (go feature)
+- start game button
+- back button
 
-first iteration main menu\
-![main menu](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/Main-Menu.png?raw=true)\
-\
-\
-\
-second iteration main menu\
-![main menu v2](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/Main-Menu-v2.png?raw=true)
+Setup Screen\
+![Setup Screen UI](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/UI/Setup-Screen.png?raw=true)
 
-Game Menu
-- 16:9
-- one panel on left
+Game Screen
+- 16:9 aspect ratio
+- collapsable player list
 - help button
-- player list
+- piece to follow the cursor above the board
+- board that scales to the number of players and baord scale setting
 - error message box above board
 
-old game menu\
-![game menu v1](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/Game-Menu-v1.png?raw=true)\
-\
-\
-\
-current game menu\
-![game menu v2](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/Game-Menu-v2.png?raw=true)
+Game Screen\
+![Game Screen UI](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/UI/Game-Screen.png?raw=true)
+
+
 
 ### 4.2 Hardware Interfaces
 This software uses the standard java interfaces.
@@ -347,9 +350,11 @@ State Machine Diagram\
 
 ## Appendix C: Issues List
 
-TBD - piece tracking
-* for game piece tracking and win condition checking, 2D arrays and linked lists seem equally able to be used however one might be more efficient so we need to look into these
+TBD - Help Screen
+* the help screen is a must for anyone confused about how ConnectX is different from Connect 4 therefore this is critical. The layout of this
+menu should be straightforward and possibly include a lot of pages of details.
 
 TBD - Game menu missing planned features
-* several features outlined in 4.1 such as a help button and error message box are missing from the game board UI. This should be re-evaluated to determine if these are really necessary and if so they should be implemented.
+* several features outlined in 4.1 such as a help button and error message box are missing from the game board UI. This should be re-evaluated to determine if these are really necessary and if so they should be implemented. As of 2/11/23, these are still missing and still mostly necessary with
+some minor changes like message location
 

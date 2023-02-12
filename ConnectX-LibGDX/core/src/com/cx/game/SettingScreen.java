@@ -32,7 +32,7 @@ public class SettingScreen implements Screen {
     Slider goFeature;
     Image player1Color;
     Stage settingStage;
-    Color[] temporaryColorArray = new Color[6];
+    Color[] temporaryColorArray = {Color.PURPLE, Color.PINK};
     float shift = -600;
     float rightshift;
     public SettingScreen(final ConnectX game) {
@@ -81,7 +81,7 @@ public class SettingScreen implements Screen {
                 System.out.println("loading test case: 2 players, one pink with id 1 and one purple with id 2");
                 game.playerQueue.add(new Player(Color.PINK, 1, "player 1"));
                 game.playerQueue.add(new Player(Color.PURPLE, 2, "player 2"));
-                game.gameBoard = new Board(game, game.playerQueue, new int[6][7]);
+                game.gameBoard = new Board(game, game.playerQueue, new int[12][14]);
                 
                 
                 
@@ -113,12 +113,11 @@ public class SettingScreen implements Screen {
                 //outputLabel.setText("Press a Button");
                 System.out.println("button released");
                 
-                for(int i = 1; i<=playerCount.getValue(); i++){
-                    game.playerQueue.add(new Player(temporaryColorArray[i-1], i, "NYE"));
-                    
-                }
-                System.out.println("# of players: "+game.playerQueue.size());
-                game.gameBoard = new Board(game, game.playerQueue, new int[6][7]);
+                //for(int i = 1; i<=playerCount.getValue(); i++){
+                //    game.playerQueue.add(new Player(temporaryColorArray[i-1], i, "NYE"));    
+                //}
+                //System.out.println("# of players: "+game.playerQueue.size());
+                //game.gameBoard = new Board(game, game.playerQueue, new int[6][7]);
                 game.setScreen(new GameScreen(game));
                 dispose();
                 
@@ -179,7 +178,7 @@ public class SettingScreen implements Screen {
         });
         
         settingStage.addActor(button1);
-        //settingStage.addActor(button2);
+        settingStage.addActor(button2);
         settingStage.addActor(button4);
         settingStage.addActor(playerCount);
         settingStage.addActor(boardScale);

@@ -32,8 +32,8 @@ public class GameScreen implements Screen {
     float x;
     float y;
     int temp;
-    int hPieces = 7;
-    int vPieces = 6;
+    int hPieces = 14;
+    int vPieces = 12;
     Image topBar;
     Image follower;
     public GameScreen(final ConnectX game) {
@@ -57,7 +57,7 @@ public class GameScreen implements Screen {
                 //add piece to internal board
                 //check win
                 //cycle players
-                if(temp<0 || temp>game.gameBoard.getBoardWidth()){
+                //if(temp<0 || temp>game.gameBoard.getBoardWidth()){
                     switch(game.gameBoard.updateInternalGameBoard(temp, game.gameBoard.getPlayers().peek().peekNextPiece())){
                         case 0: game.playerQueue.clear();
                                 game.setScreen(new TitleScreen(game));
@@ -68,7 +68,7 @@ public class GameScreen implements Screen {
                         case 2: System.out.println("not a valid move");
                         default: break; 
                     }
-                }
+                //}
                 
                 
                 //in the future, only act on click if above board not to left or right
@@ -133,7 +133,7 @@ public class GameScreen implements Screen {
         for(int i = 0; i<game.gameBoard.getBoardHeight();i++){
             for(int j = 0; j<game.gameBoard.getBoardWidth();j++){
                 game.batch.setColor(game.gameBoard.getPlayerFromID(game.gameBoard.getInternalGameBoard()[i][j]).getColor()); //set this to change based on internal board ID
-                //
+                
                 x = (float)((.5*spacer)+gap+(game.blank96Piece.getWidth()*j)+(gap*(j)));
                 y = (float)(800 - ((gap+(game.blank96Piece.getHeight()*i)+(gap*i))+game.blank96Piece.getHeight()));
                 if(game.gameBoard.getInternalGameBoard()[i][j]<=6){
