@@ -126,11 +126,9 @@ PDF guide to show basic functionality of the game as well as how to utilize new 
 
 ### 2.7 Assumptions and Dependencies
 
-- Using JavaFX for the UI
-- Linked Lists will work for tracking pieces
-*we assume that linked lists will be okay to use for tracking pieces
-- 2d array tic tac toe project
-*we plan to reuse code from this to check for win conditions if the linked list assumption is incorrect
+- Using LibGDX for the UI
+- 2d array will work for tracking pieces
+- 2d array tic tac toe project (for reference)
 ## 3. System Features
 
 
@@ -339,7 +337,7 @@ Sequence Diagram\
 \
 \
 Class Diagram\
-![Class Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/Class%20Diagram%20v2.png?raw=true)\
+![Class Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/ClassDiagramv4.png?raw=true)\
 \
 \
 \

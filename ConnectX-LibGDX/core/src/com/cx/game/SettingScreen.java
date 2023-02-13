@@ -81,7 +81,7 @@ public class SettingScreen implements Screen {
                 System.out.println("loading test case: 2 players, one pink with id 1 and one purple with id 2");
                 game.playerQueue.add(new Player(Color.PINK, 1, "player 1"));
                 game.playerQueue.add(new Player(Color.PURPLE, 2, "player 2"));
-                game.gameBoard = new Board(game, game.playerQueue, new int[12][14]);
+                game.gameBoard = new Board(game, game.playerQueue, new int[6][7]);
                 
                 
                 

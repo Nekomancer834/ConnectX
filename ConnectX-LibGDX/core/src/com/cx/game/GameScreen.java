@@ -32,8 +32,8 @@ public class GameScreen implements Screen {
     float x;
     float y;
     int temp;
-    int hPieces = 14;
-    int vPieces = 12;
+    int hPieces = 7;
+    int vPieces = 6;
     Image topBar;
     Image follower;
     public GameScreen(final ConnectX game) {
