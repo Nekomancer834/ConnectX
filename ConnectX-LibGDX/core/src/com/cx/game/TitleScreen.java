@@ -3,7 +3,6 @@ package com.cx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 
@@ -13,13 +12,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
  */
 public class TitleScreen implements Screen{
     protected final ConnectX game;
-    OrthographicCamera camera;
-    Button playButton;
-    Button helpButton;
-    Button quitButton;
-    Stage titleStage;
-    float shift = -600;
-    float rightshift;
+    protected OrthographicCamera camera;
+    protected Button playButton;
+    protected Button helpButton;
+    protected Button quitButton;
+    protected Stage titleStage;
+    protected float shift = -600;
+    protected float rightshift;
+    
     public TitleScreen(final ConnectX game) {
         //assign reference to the original game class
         this.game = game;

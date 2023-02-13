@@ -32,7 +32,7 @@ public class SettingScreen implements Screen {
     Slider goFeature;
     Image player1Color;
     Stage settingStage;
-    Color[] temporaryColorArray = {Color.PURPLE, Color.PINK};
+    Color[] temporaryColorArray = {Color.PURPLE, Color.PINK}; //this needs to go away for the final game
     float shift = -600;
     float rightshift;
     public SettingScreen(final ConnectX game) {

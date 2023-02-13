@@ -12,7 +12,7 @@ public class DesktopLauncher {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("ConnectX");
-                config.setWindowIcon("icon.jpg");
+                config.setWindowIcon("Icon.png");
                 
                 config.setWindowedMode(1600, 900);
 		new Lwjgl3Application(new ConnectX(), config);
