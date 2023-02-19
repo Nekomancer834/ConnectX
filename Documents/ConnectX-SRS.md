@@ -339,7 +339,7 @@ Sequence Diagram\
 \
 \
 Class Diagram\
-![Class Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/ClassDiagramv4.png?raw=true)\
+![Class Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/ClassDiagram.png?raw=true)\
 \
 \
 \
