@@ -1,5 +1,4 @@
-
-# Connect X
+﻿Connect X
 ### Software Requirements Specification
    Version 1.0 approved\
    Prepared by Trentin, Mohamed, and DeJon\
@@ -325,7 +324,7 @@ N/A = Not Applicable
 
 ## Appendix B: Analysis Models
 Use Case Diagram\
-![Use Case Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/UseCaseDiagram.png)?raw=true)\
+![Use Case Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/UseCaseDiagram.png?raw=true)\
 \
 \
 \
