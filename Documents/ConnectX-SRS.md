@@ -50,16 +50,15 @@ Appendix C: [Issues List](#appendix-c-issues-list)
 | all    | 10/9/22 | initial changes      | 1.0       |
 | all    | 11/5/22 | update for phase 2   | 1.1       |
 | all    | 2/14/23 | update for phase 4   | 1.2       |
-                   | and new fatures and  |
-                   | changes              |
-|
+|        |         | and new fatures and  |           |
+|        |         | changes              |           |
 
 
 ## 1. Introduction
 
 ### 1.1 Purpose
 
-Connect X is a game for 2-6 people where they try to get 4 of their pieces in a row with the added difficulty of features from other games. At the beginning, the GO feature will add more difficulty and complexity as the player count rises. If a player’s piece is surrounded by 4 other player’s pieces and one is a GO piece, the center piece is converted to the surrounding color. The product will also support later expansions featuring new pieces to spice up the game further.
+Connect X is a game for 2-6 people where they try to get 4 of their pieces in a row with the added difficulty of features from other games. At the beginning, the GO feature will add more difficulty and complexity as the player count rises. If a player’s piece is surrounded by 4 other player’s pieces and one is a GO piece, the center piece is converted to the surrounding color. The product will also support later expansions featuring new pieces to spice up the gameplay further.
 ### 1.2 Document Conventions
 
 This SRS is written in times 12 font.
@@ -77,7 +76,7 @@ The software being provided is Connect X. Its purpose is to provide friendly com
 
 ### 1.5 References
 
-https://whatsgoodtodo.co.uk/official-hasbro-giant-connect-4-review/ for the picture used in a mockup
+https://whatsgoodtodo.co.uk/official-hasbro-giant-connect-4-review/ for the picture used in a mockup and also reference board scale
 
 
 ## 2. Overall Description
@@ -88,7 +87,7 @@ Connect X is a replacement for the original Connect 4 game by Hasbro. This is be
 
 ### 2.2 Product Features
 
-This game will have 3 major features. The first major feature is the ability for more than 2 players to play on the same board. The second major feature provided by this software will be the ability to have difficulty scaling through the use of adjustable board sizes and game features. The third feature of Connect X is the new GO piece and ability to add new pieces in the future. These pieces will add the feature of capturing pieces similar to the board game Go. Instead of the captured piece being removed from the board, it is instead turned into a piece of the surrounding color. This is to prevent modifying the game too much by dropping all the pieces in the column down a space. This piece increases your chances of winning while simultaneously adding pressure for the other players. The Go piece will be added to the game through a slider containing 3 different distribution modes: none, random, and all. This will add an additional level of complexity to the game while also allowing for less intense games if desired.
+This game will have 3 major features. The first major feature is the ability for more than 2 players to play on the same board. The second major feature provided by this software will be the ability to have difficulty scaling through the use of adjustable board sizes and game features. The third feature of Connect X is the new GO piece and ability to add new pieces in the future. These pieces will add the feature of capturing pieces similar to the board game Go. Instead of the captured piece being removed from the board, it is instead turned into a piece of the surrounding color. This is to prevent modifying the game too much by dropping all the pieces in the column down a space and it means people will need to team up to prevent the impending victory caused by two 3-in-a-row conditions. This piece increases your chances of winning while simultaneously adding pressure for the other players. The Go piece will be added to the game through a slider containing 3 different distribution modes: none, GO, random, and all. This will add an additional level of complexity to the game while also allowing for games closer to the original Connect 4 if desired.
 
 ### 2.3 User Classes and Characteristics
 
@@ -97,12 +96,13 @@ Favored User Classes:
 Adults
 * increased skill
 * increased technical expertise
-* likely to use more functions of the product
+* increased likelyhood to use more functions of the product
 
 Teenagers/young adults
 * higher frequency of use
 * medium to high education level
 * medium technical expertise
+* likely to take interest in new features
 
 Younger than teens
 * more likely to play in bigger group
@@ -124,7 +124,7 @@ More limits will become apparent as development progresses.
 
 ### 2.6 User Documentation
 
-PDF guide to show basic functionality of the game as well as how to utilize new pieces added
+Help Screen to show basic functionality of the game as well as how to utilize new pieces added
 
 ### 2.7 Assumptions and Dependencies
 
@@ -138,24 +138,30 @@ PDF guide to show basic functionality of the game as well as how to utilize new 
 
 #### 3.1.1 Description and Priority
 
-high priority interface that the user interacts with to start the game, to set player count, to determine difficulty, and to set individual player colors
+high priority interface that the user interacts with to start the game, set player count, determine board scale, set individual player colors, and enable or disable new game piece features.
 
 #### 3.1.2 Stimulus/Response Sequences
-Stimulus: The user interacts with the player count drop-down menu\
+Stimulus: The user interacts with the play button\
+Response: The user is shown a new screen with more settings
+
+Stimulus: The user interacts with the player count slider\
 Response: The game stores the changed value
 
-Stimulus: The user interacts with the color selection menus\
+Stimulus: The user interacts with the color selection icons\
 Response: The game updates the piece colors based on decided user input
 
-Stimulus: the user interacts with the difficulty slider\
-Response: the program reflects the difficulty change on the UI and sets internal variables
+Stimulus: the user interacts with the board scale slider\
+Response: the program reflects the change on the UI and sets internal variables
 
-Stimulus: the user toggles the go feature toggle\
-Response: the program sets whether or not to provide go pieces internally
+Stimulus: the user interacts with the feature slider\
+Response: the program sets whether or not to provide only normal pieces, all new pieces, or some random pieces
 
 Stimulus: the user presses the start game button\
 Response: the program sets internal variables based on the provided information from the user and transitions to the game menu
 
+Stimulus: the user presses the help button\
+Response: the program displays a screen allowing the player to browse through various hints as to the function\
+          and uses of new pieces and features.
 
 #### 3.1.3 Functional Requirements
 
@@ -163,7 +169,7 @@ REQ-1: buttons for each player’s color\
 REQ-2: slider for player count\
 REQ-3: slider for board scale\
 REQ-4: start game button\
-REQ-5: slider for GO feature
+REQ-5: slider for new features
 
 ### 3.2 Player Color Selection
 
@@ -173,38 +179,38 @@ Each player in the game will have their own color for their pieces to make it ea
 
 #### 3.2.2 Stimulus/Response Sequences
 
-Stimulus: The Players will click on their respective drop-down menu\
-Response: The program will display a color picker with many options for colors
+Stimulus: The Players will click on their respective color changer\
+Response: The program will display a color of their choosing for their pieces
 
 #### 3.2.3 Functional Requirements
-REQ-1: 6 Color picker drop-downs
+REQ-1: 6 intuitive color picking method
 
 ### 3.3 Player Count Selection
 
 #### 3.3.1 Description and Priority
 
-The game is playable with as few as 2 players and as many as 6 and the game will allow adjust for the number of players
+The game is playable with as few as 2 players and as many as 6, and the game will allow adjust for the number of players
 
 #### 3.3.2 Stimulus/Response Sequences
 
-Stimulus: The player will open up a drop-down with values for the number of players\
+Stimulus: The player will adjust a slider with values for the number of players\
 Response: The program will show an updated value and scale the board to account for the extra players
 
 #### 3.3.3 Functional Requirements
 
-REQ-1: drop-down with player count values
+REQ-1: slider with player count values
 
 
 ### 3.4 Difficulty Selection
 
 #### 3.4.1 Description and Priority
 
-The players will artificially be able to make the board smaller than it should be for the number of players present making it much more difficult to win before the board is full. The difficulty will be calculated by taking into account the number of players in the game and also the value of the difficulty slider to return a board size that may be different than the board size needed to host 6 players. 
+The players will artificially be able to make the board smaller than it should be, for the number of players present, making it much more difficult to win before the board is full. The difficulty will be calculated by taking into account the number of players in the game and also the value of the difficulty slider to return a board size that may be larger or smaller than the board size suggested to host 6 players. 
 
 #### 3.4.2 Stimulus/Response Sequences
 
-Stimulus: the player will adjust a slider to one of three values\
-Response: the game will update a label with the set value and set internal variables based on said value
+Stimulus: the player will adjust a slider to one of five values\
+Response: the game will update to relfect the set value and set internal variables based on said value
 
 #### 3.4.3 Functional Requirements
 REQ-1: slider on UI to set difficulty
@@ -231,8 +237,7 @@ Response: the program will return to the main menu
 
 #### 3.5.3 Functional Requirements
 REQ-1: game board\
-REQ-3: end game button\
-REQ-4: end game confirmation
+REQ-3: end game button
 
 ### 3.6 Game Board
 
@@ -241,7 +246,7 @@ The game board is where the players will place their respective pieces and visua
 
 #### 3.6.2 Stimulus/Response Sequences
 
-Stimulus: the player will click above a column\
+Stimulus: the player will click above the game board near a column\
 Response: the game will place their piece at the lowest space in the column that is not occupied, to simulate gravity
 
 #### 3.6.3 Functional Requirements
@@ -268,8 +273,8 @@ Setup Menu
 - 16:9 aspect ratio
 - selection slider for player count
 - selection slider for board scaling (-2 through +2)
-- selection slider for GO feature (none, some, and all)
-- color selection boxes
+- selection slider for new features (none, some, and all)
+- intuitive color selection methods
 - start game button
 - back button
 
@@ -281,8 +286,7 @@ Game Screen
 - collapsable player list
 - help button
 - piece to follow the cursor above the board
-- board that scales to the number of players and baord scale setting
-- error message box above board
+- board that scales with the number of players and board scale setting
 
 Game Screen\
 ![Game Screen UI](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Images/UI/Game-Screen.png?raw=true)
@@ -294,7 +298,7 @@ This software uses the standard java interfaces.
 
 
 ### 4.3 Software Interfaces
-The help button opens a document in web browser of user's system.
+This software uses the standard java and openGL interfaces.
 
 
 ### 4.4 Communications Interfaces
@@ -303,7 +307,8 @@ N/A
 ## 5. Other Nonfunctional Requirements
 
 ### 5.1 Performance Requirements
-The software's win calculation time should be less than 5 seconds on any hardware
+The software's win calculation time should be less than 5 seconds on any hardware. Ideally this calculation will\
+take nowhere near this long however it is dependant on the number of piece types added to the game.
 
 
 ### 5.2 Safety Requirements
@@ -313,7 +318,7 @@ N/A
 N/A
 
 ### 5.4 Software Quality Attributes
-The software will be portable and reliable as it makes and requires no extra files and it can run on any device with java
+The software will be portable and reliable as it makes, and requires, no extra files outside of its jar and it can run on any device with java without any elevated priveleges. 
 
 
 ## 6. Other Requirements
@@ -351,10 +356,9 @@ State Machine Diagram\
 ## Appendix C: Issues List
 
 TBD - Help Screen
-* the help screen is a must for anyone confused about how Connect X is different from Connect 4 therefore this is critical. The layout of this
-menu should be straightforward and possibly include a lot of pages of details.
+* The help screen is a must for anyone confused about how Connect X is different from Connect 4 therefore this is critical.\ 
+  The layout of this menu should be straightforward and possibly include a lot of pages of details.
 
 TBD - Game menu missing planned features
-* several features outlined in 4.1 such as a help button and error message box are missing from the game board UI. This should be re-evaluated to determine if these are really necessary and if so they should be implemented. As of 2/11/23, these are still missing and still mostly necessary with
-some minor changes like message location
+* Several features for the game screen outlined in 4.1 such as a help button are missing from the game board UI.
 
