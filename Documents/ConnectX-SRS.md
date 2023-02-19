@@ -1,8 +1,8 @@
-﻿
+
 # Connect X
 ### Software Requirements Specification
    Version 1.0 approved\
-   Prepared by Trentin and Mohamed\
+   Prepared by Trentin, Mohamed, and DeJon\
    October 9, 2022
 
 ## Table of Contents
@@ -50,14 +50,17 @@ Appendix C: [Issues List](#appendix-c-issues-list)
 | ------ | ------  | -------------------- | --------- |
 | all    | 10/9/22 | initial changes      | 1.0       |
 | all    | 11/5/22 | update for phase 2   | 1.1       |
+| all    | 2/14/23 | update for phase 4   | 1.2       |
+                   | and new fatures and  |
+                   | changes              |
+|
 
 
 ## 1. Introduction
 
 ### 1.1 Purpose
 
-Connect X Go 1.0 is a game for 2-6 people where they try to get 4 of their pieces in a row with an added difficulty of a GO feature. The GO feature will add more difficulty and complexity as the player count rises. If a player’s piece is surrounded by 4 other player’s pieces and one is a GO piece, the center piece is converted to the surrounding color.
-
+ConnectX is a game for 2-6 people where they try to get 4 of their pieces in a row with the added difficulty of features from other games. At the beginning, the GO feature will add more difficulty and complexity as the player count rises. If a player’s piece is surrounded by 4 other player’s pieces and one is a GO piece, the center piece is converted to the surrounding color. The product will also support later expansions featuring new pieces to spice up the game further.
 ### 1.2 Document Conventions
 
 This SRS is written in times 12 font.
@@ -86,7 +89,7 @@ Connect X is a replacement for the original Connect 4 game by Hasbro. This is be
 
 ### 2.2 Product Features
 
-This game will have 3 major features. The first major feature is the ability for more than 2 players to play on the same board. The second major feature provided by this software will be the ability to have difficulty scaling through the use of adjustable board sizes and game features. The third feature of Connect X GO is the new GO piece. This piece will add the feature of capturing pieces similar to the board game Go. Instead of the captured piece being removed from the board, it is instead turned into a piece of the surrounding color. This is to prevent modifying the game too much by dropping all the pieces in the column down a space. This piece increases your chances of winning while simultaneously adding pressure for the other players. The Go piece will be added to the game through a slider containing 3 different distribution modes: none, random, and all. This will add an additional level of complexity to the game while also allowing for less intense games if desired.
+This game will have 3 major features. The first major feature is the ability for more than 2 players to play on the same board. The second major feature provided by this software will be the ability to have difficulty scaling through the use of adjustable board sizes and game features. The third feature of Connect X GO is the new GO piece and ability to add new pieces in the future. These pieces will add the feature of capturing pieces similar to the board game Go. Instead of the captured piece being removed from the board, it is instead turned into a piece of the surrounding color. This is to prevent modifying the game too much by dropping all the pieces in the column down a space. This piece increases your chances of winning while simultaneously adding pressure for the other players. The Go piece will be added to the game through a slider containing 3 different distribution modes: none, random, and all. This will add an additional level of complexity to the game while also allowing for less intense games if desired.
 
 ### 2.3 User Classes and Characteristics
 
@@ -111,7 +114,7 @@ New Players
 
 ### 2.4 Operating Environment
 
-This game will run on laptops and desktops. The game will run on any x86 operating system capable of running Java 1.8 or higher.
+The game will run on any x86 operating system capable of running Java 1.8 or higher.
 
 ### 2.5 Design and Implementation Constraints
 
