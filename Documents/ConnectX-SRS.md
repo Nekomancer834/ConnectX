@@ -41,7 +41,8 @@
 
 Appendix A: [Glossary](#appendix-a-glossary)\
 Appendix B: [Analysis Models](#appendix-b-analysis-models)\
-Appendix C: [Issues List](#appendix-c-issues-list)
+Appendix C: [Poject Sceduling](#appendix-c-project-sceduling)\
+Appendix D: [Issues List](#appendix-d-issues-list)
 
 ## Revision History
 
@@ -347,11 +348,24 @@ Class Diagram\
 \
 \
 State Machine Diagram\
-![State Machine Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/StateMachineDiagram.png?raw=true)\
+![State Machine Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/StateMachineDiagram.png?raw=true)
 
 
+## Appendix C: Project Scheduling
 
-## Appendix C: Issues List
+COCOMO II Model - Function Points Estimate\
+![COCOMO II Model Function Points Estimate](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/COCOMOFP.png?raw=true)
+
+COCOMO II Model - SLOC Estimate\
+![COCOMO II Model SLOC Estimate](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/COCOMOSLOC.png?raw=true)
+
+Gantt Chart Semester-1\
+![Gantt Chart Semester-1](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/GanttSemester1.png?raw=true)
+
+Gantt Chart Semester-2\
+![Gantt Chart Semester-2](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/GanttSemester2.png?raw=true)
+
+## Appendix D: Issues List
 
 TBD - Help Screen
 * The help screen is a must for anyone confused about how Connect X is different from Connect 4 therefore this is critical.\ 
