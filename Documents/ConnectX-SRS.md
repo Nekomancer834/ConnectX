@@ -344,7 +344,7 @@ Class Diagram\
 \
 \
 State Machine Diagram\
-![State Machine Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/state%20machine%20diagram.png?raw=true)\
+![State Machine Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/StateMachineDiagram.png?raw=true)\
 
 
 
