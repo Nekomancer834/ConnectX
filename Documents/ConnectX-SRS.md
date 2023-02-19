@@ -330,7 +330,7 @@ Use Case Diagram\
 \
 \
 Activity Diagram\
-![Activity Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/Activity%20Diagram.png?raw=true)\
+![Activity Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/ActivityDiagram.png?raw=true)\
 \
 \
 \
