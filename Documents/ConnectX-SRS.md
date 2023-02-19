@@ -334,7 +334,7 @@ Activity Diagram\
 \
 \
 Sequence Diagram\
-![Sequence Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/Sequence%20Diagram.png?raw=true)\
+![Sequence Diagram](https://github.com/Nekomancer834/ConnectX/blob/main/Documents/Diagrams/SequenceDiagram.png?raw=true)\
 \
 \
 \
