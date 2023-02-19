@@ -45,13 +45,11 @@ Appendix C: [Issues List](#appendix-c-issues-list)
 
 ## Revision History
 
-| Name   | Date    | Reason For Changes   | Version   |
-| ------ | ------  | -------------------- | --------- |
-| all    | 10/9/22 | initial changes      | 1.0       |
-| all    | 11/5/22 | update for phase 2   | 1.1       |
-| all    | 2/14/23 | update for phase 4   | 1.2       |
-|        |         | and new fatures and  |           |
-|        |         | changes              |           |
+| Name   | Date    | Reason For Changes                            | Version   |
+| ------ | ------  | --------------------------------------------- | --------- |
+| all    | 10/9/22 | initial changes                               | 1.0       |
+| all    | 11/5/22 | update for phase 2                            | 1.1       |
+| all    | 2/14/23 | update for phase 4 and new fatures and changes| 1.2       |
 
 
 ## 1. Introduction
