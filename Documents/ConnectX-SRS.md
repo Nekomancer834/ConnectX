@@ -42,7 +42,8 @@
 Appendix A: [Glossary](#appendix-a-glossary)\
 Appendix B: [Analysis Models](#appendix-b-analysis-models)\
 Appendix C: [Poject Sceduling](#appendix-c-project-sceduling)\
-Appendix D: [Issues List](#appendix-d-issues-list)
+Appendix D: [Issues List](#appendix-d-issues-list)\
+Appendix E: [Github Link](#appendix-e-github-link)
 
 ## Revision History
 
@@ -68,7 +69,6 @@ Every requirement statement will have its own priority.
 
 This SRS is intended for developers, project managers, testers, and document writers.
 
-
 ### 1.4 Project Scope
 
 The software being provided is Connect X. Its purpose is to provide friendly competition between friends. It does this by increasing the difficulty thus increasing the levels of competition between players. It also increases friendly competition by allowing for more people to play the same game at once. Its goal is to make it easier for more people to be able to play connect 4 together.
@@ -76,6 +76,7 @@ The software being provided is Connect X. Its purpose is to provide friendly com
 ### 1.5 References
 
 https://whatsgoodtodo.co.uk/official-hasbro-giant-connect-4-review/ for the picture used in a mockup and also reference board scale
+https://github.com/Nekomancer834/ConnectX for ideas and documents.
 
 
 ## 2. Overall Description
@@ -373,4 +374,8 @@ TBD - Help Screen
 
 TBD - Game menu missing planned features
 * Several features for the game screen outlined in 4.1 such as a help button are missing from the game board UI.
+
+## Appendix E: Github Link
+
+- https://github.com/Nekomancer834/ConnectX
 
