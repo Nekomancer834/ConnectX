@@ -1,4 +1,4 @@
-
+  
 package com.cx.game;
 import com.badlogic.gdx.Game;
 import java.lang.Math;
@@ -30,13 +30,14 @@ public class Board {
         for(int i = 0; i<tracker.length; i++)
             this.tracker[i] = internalGameBoard.length-1;
     }
-    Board(ConnectX game, Queue<Player> players, int[][] internalGameBoard){
+    Board(ConnectX game, Queue<Player> players, int a, int b){
+        
         setPlayersQueue(players);
         for(Player x : players){
             playerIDs.put(x.getID(), x);
             playerIDs.put(x.getGoID(), x);
         }
-        setInternalGameBoard(internalGameBoard);
+        setInternalGameBoard(new int[b][a]);
         tracker = new int[internalGameBoard[0].length];
         for(int i = 0; i<tracker.length; i++)
             this.tracker[i] = internalGameBoard.length-1;
@@ -44,6 +45,7 @@ public class Board {
     }
     
     public int updateInternalGameBoard(int mouseColumn, int id){
+        checkGoReplacement(internalGameBoard);
         //write the id of the current player to the lowest unoccupied spot
         if(tracker[mouseColumn]>=0){
             internalGameBoard[tracker[mouseColumn]][mouseColumn] = id;
@@ -103,13 +105,31 @@ public class Board {
     }
     //this is really broken, disabled until i can figure out how to only make it run when a go piece is present in one of the four spaces
     private int[][] checkGoReplacement(int[][] board){
-        for(int i = board.length-2; i >= 1; i--){
-            for(int j = 0; j < board[i].length-3; j++){
-                    if(board[i][j]!=0)
-                        if((board[i-1][j+1]==board[i][j] || board[i-1][j+1]==(board[i][j]+6)) &&
-                           (board[i  ][j+2]==board[i][j] || board[i  ][j+2]==(board[i][j]+6)) &&
-                           (board[i+1][j+1]==board[i][j] || board[i+1][j+1]==(board[i][j]+6))   )
-                            board[i  ][j+1]=board[i][j];
+        for(int i = board.length-2; i >1 ; i--){
+            for(int j = 1; j < board[i].length-1; j++){
+                    
+                    if(board[i][j]!=0){
+                        // top piece is the fourth
+                        if((board[i+1][j]==  players.peek().getNextPiece()) &&
+                           (board[i+1][j]==board[i][j-1]) &&
+                           (board[i+1][j]== board[i][j+1]  ) ){
+                            board[i  ][j]= board[i+1][j];
+                        }
+                        
+                        // left piece is the fourth
+                        else if((board[i+1][j]==board[i][j+1]) &&
+                           (board[i+1][j]==board[i-1][j]) &&
+                           (board[i+1][j]==players.peek().getNextPiece())   ){
+                            board[i  ][j]=board[i+1][j];
+                        }
+                    // right piece is the fourth
+                        else if((board[i+1][j]==board[i][j-1]) &&
+                           (board[i+1][j]==board[i-1][j]) &&
+                           (board[i+1][j]==players.peek().getNextPiece())   ){
+                            board[i  ][j]=board[i+1][j];
+                        }
+                       
+                    }
             }
         }
         return board;
