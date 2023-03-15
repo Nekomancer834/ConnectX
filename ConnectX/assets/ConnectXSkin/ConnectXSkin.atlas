@@ -1,0 +1,125 @@
+
+ConnectXSkin.png
+size: 1024, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+ASAPbold
+  rotate: false
+  xy: 1, 270
+  size: 506, 59
+  orig: 506, 59
+  offset: 0, 0
+  index: -1
+48x48test
+  rotate: false
+  xy: 753, 751
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+64x64test
+  rotate: false
+  xy: 603, 602
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+GradientBar
+  rotate: false
+  xy: 1, 739
+  size: 750, 60
+  orig: 750, 60
+  offset: 0, 0
+  index: -1
+sliderBackgroundGreySmaller
+  rotate: false
+  xy: 1, 145
+  size: 420, 15
+  orig: 420, 15
+  offset: 0, 0
+  index: -1
+sliderBackgroundWhite
+  rotate: false
+  xy: 1, 199
+  size: 420, 69
+  orig: 420, 69
+  offset: 0, 0
+  index: -1
+sliderBackgroundWhiteSmaller
+  rotate: false
+  xy: 1, 162
+  size: 420, 35
+  orig: 420, 35
+  offset: 0, 0
+  index: -1
+sliderKnobDarkGrey
+  rotate: false
+  xy: 603, 668
+  size: 69, 69
+  orig: 69, 69
+  offset: 0, 0
+  index: -1
+sliderKnobDarkGreySmall
+  rotate: false
+  xy: 509, 304
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+sliderKnobGrey
+  rotate: false
+  xy: 423, 199
+  size: 69, 69
+  orig: 69, 69
+  offset: 0, 0
+  index: -1
+sliderKnobGreySmaller
+  rotate: false
+  xy: 674, 712
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+sliderKnobWhite
+  rotate: false
+  xy: 1, 74
+  size: 69, 69
+  orig: 69, 69
+  offset: 0, 0
+  index: -1
+sliderKnobWhiteSmaller
+  rotate: false
+  xy: 423, 172
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
+titleButtonRed
+  rotate: false
+  xy: 1, 637
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+titleButtonRedRight
+  rotate: false
+  xy: 1, 535
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+titleButtonYellow
+  rotate: false
+  xy: 1, 433
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1
+titleButtonYellowRight
+  rotate: false
+  xy: 1, 331
+  size: 600, 100
+  orig: 600, 100
+  offset: 0, 0
+  index: -1

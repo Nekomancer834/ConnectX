@@ -11,17 +11,23 @@ public class Player {
     private String pName;
     private int pID;
     private int goID;
+    private int odds;
     private Color pColor;
     
     private int nextPiece;
     private int tempPiece;
 
-    Player(Color color, int id, String name){
+    Player(Color color, int id, int o, String name){
         //Player Constructor
         setName(name);
         setColor(color);
+        setOdds(o);
         setID(id);
-        setNextPiece(id);
+        //this is doubled because the way the first piece is generated always returns null on the first call
+        //of getNextPiece(). this happens to every player so it doesn't really mess with the odds of any one person getting
+        //something better
+        getNextPiece();
+        getNextPiece();
     }
     
     Player(){
@@ -39,7 +45,7 @@ public class Player {
         //store the next piece before changing it
         tempPiece = nextPiece;
         
-        if((Math.random()*100)<0){nextPiece = goID;}
+        if((Math.random()*100)<odds){nextPiece = goID;}
         else{nextPiece = pID;}
         return tempPiece;
     }
@@ -58,8 +64,19 @@ public class Player {
             this.goID = id+6;
         }
     }
-    public void setName(String name){
+    private void setName(String name){
         pName = name;
+    }
+    private void setOdds(int o){
+        switch(o){
+            case 0: this.odds = 0;
+                    break;
+            case 1: this.odds = 30; // the smaller this is, the less likely to get a go piece
+                    break;
+            case 2: this.odds = 100;
+                    break;
+            default: this.odds = 0;
+        }
     }
     private void setNextPiece(int i) {
         nextPiece = i;

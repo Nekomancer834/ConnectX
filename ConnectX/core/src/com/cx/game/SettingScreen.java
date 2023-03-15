@@ -10,11 +10,15 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
+import com.kotcrab.vis.ui.*;
+import com.kotcrab.vis.ui.widget.color.*;
 
 /**
  *
@@ -23,16 +27,19 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 public class SettingScreen implements Screen {
     protected final ConnectX game;
     OrthographicCamera camera;
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
+    Button backButton;
+    Button playButton;
     Slider playerCount;
     Slider boardScale;
     Slider goFeature;
-    Image player1Color;
+    BasicColorPicker player1Color;
+    BasicColorPicker player2Color;
+    BasicColorPicker player3Color;
+    BasicColorPicker player4Color;
+    BasicColorPicker player5Color;
+    BasicColorPicker player6Color;
     Stage settingStage;
-    Color[] temporaryColorArray = {Color.PURPLE, Color.PINK}; //this needs to go away for the final game
+    Color[] ColorArray = new Color[6]; //this needs to go away for the final game
     float shift = -600;
     float rightshift;
     public SettingScreen(final ConnectX game) {
@@ -42,10 +49,10 @@ public class SettingScreen implements Screen {
         settingStage = new Stage(game.viewport);
         Gdx.input.setInputProcessor(settingStage);
         
-        button1 = new TextButton("BACK",game.mySkin);
-        button1.setSize(400, 66);
-        button1.setPosition(shift, 80);
-        button1.addListener(new InputListener(){
+        backButton = new TextButton("BACK",game.mySkin, "Left");
+        backButton.setSize(400, 66);
+        backButton.setPosition(shift, 80);
+        backButton.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 //outputLabel.setText("Press a Button");
@@ -63,127 +70,144 @@ public class SettingScreen implements Screen {
             }
             @Override
             public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                button1.moveBy(-shift, 0);
+                backButton.moveBy(-shift, 0);
                 
             }
             @Override
             public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                button1.moveBy(shift, 0);
-            }
-        });
-        button2 = new TextButton("TEST",game.mySkin);
-        button2.setSize(400, 66);
-        button2.setPosition(shift, 400);
-        button2.addListener(new InputListener(){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                //outputLabel.setText("Press a Button");
-                System.out.println("loading test case: 2 players, one pink with id 1 and one purple with id 2");
-                game.playerQueue.add(new Player(Color.PINK, 1, "player 1"));
-                game.playerQueue.add(new Player(Color.PURPLE, 2, "player 2"));
-                game.gameBoard = new Board(game, game.playerQueue, new int[6][7]);
-                
-                
-                
-            }
-            @Override
-            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("button pressed");
-                
-                return true;
-            }
-            @Override
-            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                button2.moveBy(-shift, 0);
-                
-            }
-            @Override
-            public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                button2.moveBy(shift, 0);
+                backButton.moveBy(shift, 0);
             }
         });
         
-        
-        button4 = new TextButton("PLAY",game.mySkin, "right");
-        button4.setSize(400, 66);
-        button4.setPosition(settingStage.getWidth()-button4.getWidth()-shift, 80);
-        button4.addListener(new InputListener(){
+        playButton = new TextButton("PLAY",game.mySkin, "Right");
+        playButton.setSize(400, 66);
+        playButton.setPosition(settingStage.getWidth()-playButton.getWidth()-shift, 80);
+        playButton.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                //outputLabel.setText("Press a Button");
-                System.out.println("button released");
-                
-                //for(int i = 1; i<=playerCount.getValue(); i++){
-                //    game.playerQueue.add(new Player(temporaryColorArray[i-1], i, "NYE"));    
-                //}
-                //System.out.println("# of players: "+game.playerQueue.size());
-                //game.gameBoard = new Board(game, game.playerQueue, new int[6][7]);
+                for(int i = 1; i<= playerCount.getValue(); i++)
+                    game.playerQueue.add(new Player(ColorArray[i-1], i, (int)goFeature.getValue(), "player "+(i)));
+                switch((int)playerCount.getValue()){
+                    case 2: game.gameBoard = new Board(game, game.playerQueue, (int)(7+boardScale.getValue()), (int)(6+boardScale.getValue()));
+                            break;
+                    case 3: game.gameBoard = new Board(game, game.playerQueue, (int)(11+boardScale.getValue()), (int)(9+boardScale.getValue()));
+                            break;
+                    case 4: game.gameBoard = new Board(game, game.playerQueue, (int)(14+boardScale.getValue()), (int)(12+boardScale.getValue()));
+                            break;
+                    case 5:
+                    case 6: game.gameBoard = new Board(game, game.playerQueue, (int)(16+boardScale.getValue()), (int)(14+boardScale.getValue()));
+                            break;
+                    default: game.gameBoard = new Board(game, game.playerQueue, (int)((3.5*playerCount.getValue())+boardScale.getValue()), (int)((3*playerCount.getValue())+boardScale.getValue()));
+                }
+                //game.gameBoard = new Board(game, game.playerQueue, new int[(int)((3*playerCount.getValue())+boardScale.getValue())][(int)((3.5*playerCount.getValue())+boardScale.getValue())]);
                 game.setScreen(new GameScreen(game));
                 dispose();
                 
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("button pressed");
                 
                 return true;
             }
             @Override
             public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                button4.moveBy(shift, 0);
+                playButton.moveBy(shift, 0);
                 
             }
             @Override
             public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                button4.moveBy(-shift, 0);
+                playButton.moveBy(-shift, 0);
             }
         });
         
-        playerCount = new Slider(2, 6, 1, false, game.defaultSkin);
+        playerCount = new Slider(2, 6, 1, false, game.mySkin);
         playerCount.setSize(300, 21);
-        playerCount.setPosition(784, 900-150);
-        boardScale = new Slider(-2, 2, 1, false, game.defaultSkin);
+        playerCount.setPosition(784, 900-120);
+        boardScale = new Slider(-2, 2, 1, false, game.mySkin);
         boardScale.setValue(0);
         boardScale.setSize(300, 21);
-        boardScale.setPosition(784, 900-255);
-        goFeature = new Slider(1, 3, 1, false, game.defaultSkin);
+        boardScale.setPosition(784, 900-225);
+        goFeature = new Slider(0, 2, 1, false, game.mySkin);
         goFeature.setSize(300, 21);
-        goFeature.setPosition(784, 900-375);
-        
-        player1Color = new Image(game.gradientBar);
-        player1Color.setPosition(20, 20);
-        player1Color.addListener(new InputListener(){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                
-                
-            }
-            @Override
-            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("button pressed");
-                temporaryColorArray[0] = colorPicker(x,y);
-                button4.setColor(temporaryColorArray[0]);
-                System.out.println("Color: "+temporaryColorArray[0].toString());
-                return true;
-            }
-            @Override
-            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                
-                
-            }
-            @Override
-            public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                
-            }
+        goFeature.setPosition(784, 900-345);
+        //p1 colorpicker
+        player1Color = new BasicColorPicker(
+                       new ColorPickerAdapter(){
+                           @Override
+                           public void changed(Color newColor){
+                               ColorArray[0] = newColor;
+                           }
         });
+        player1Color.setPosition(547, 380);
+        player1Color.setColor(Color.RED);
+        player1Color.setShowHexFields(false);
+        //p2 colorpicker
+        player2Color = new BasicColorPicker(
+                       new ColorPickerAdapter(){
+                           @Override
+                           public void changed(Color newColor){
+                               ColorArray[1] = newColor;
+                           }
+        });
+        player2Color.setPosition(547+240, 380);
+        player2Color.setColor(Color.YELLOW);
+        player2Color.setShowHexFields(false);
+        //p3 colorpicker
+        player3Color = new BasicColorPicker(
+                       new ColorPickerAdapter(){
+                           @Override
+                           public void changed(Color newColor){
+                               ColorArray[2] = newColor;
+                           }
+        });
+        player3Color.setPosition(547+480, 380);
+        player3Color.setColor(Color.CYAN);
+        player3Color.setShowHexFields(false);
+        //p4 colorpicker
+        player4Color = new BasicColorPicker(
+                       new ColorPickerAdapter(){
+                           @Override
+                           public void changed(Color newColor){
+                               ColorArray[3] = newColor;
+                           }
+        });
+        player4Color.setPosition(547, 125);
+        player4Color.setColor(Color.PURPLE);
+        player4Color.setShowHexFields(false);
+        //p5 colorpicker
+        player5Color = new BasicColorPicker(
+                       new ColorPickerAdapter(){
+                           @Override
+                           public void changed(Color newColor){
+                               ColorArray[4] = newColor;
+                           }
+        });
+        player5Color.setPosition(547+240, 125);
+        player5Color.setColor(Color.PINK);
+        player5Color.setShowHexFields(false);
+        //p6 colorpicker
+        player6Color = new BasicColorPicker(
+                       new ColorPickerAdapter(){
+                           @Override
+                           public void changed(Color newColor){
+                               ColorArray[5] = newColor;
+                           }
+        });
+        player6Color.setPosition(547+480, 125);
+        player6Color.setColor(Color.GREEN);
+        player6Color.setShowHexFields(false);
         
-        settingStage.addActor(button1);
-        settingStage.addActor(button2);
-        settingStage.addActor(button4);
+        settingStage.addActor(backButton);
+        settingStage.addActor(playButton);
         settingStage.addActor(playerCount);
         settingStage.addActor(boardScale);
         settingStage.addActor(goFeature);
         settingStage.addActor(player1Color);
+        settingStage.addActor(player2Color);
+        settingStage.addActor(player3Color);
+        settingStage.addActor(player4Color);
+        settingStage.addActor(player5Color);
+        settingStage.addActor(player6Color);
         
     }
 
@@ -199,7 +223,6 @@ public class SettingScreen implements Screen {
         
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
-        //game.batch.draw(game.settingBackground,0,0);
         game.batch.draw(game.settingBackground,0,0);
         game.batch.end();
         settingStage.act();
@@ -210,11 +233,9 @@ public class SettingScreen implements Screen {
                 shift=-30;
             }
 
-            button1.setX(shift);
-            button2.setX(shift);
-            //button3.setX(shift);
-            rightshift = settingStage.getWidth()-button4.getWidth()-shift;
-            button4.setX(rightshift);
+            backButton.setX(shift);
+            rightshift = settingStage.getWidth()-playButton.getWidth()-shift;
+            playButton.setX(rightshift);
         }
         
         

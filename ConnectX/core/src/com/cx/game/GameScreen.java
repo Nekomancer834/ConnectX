@@ -32,22 +32,40 @@ public class GameScreen implements Screen {
     float x;
     float y;
     int temp;
-    int hPieces = 7;
-    int vPieces = 6;
+    int iterator = 0;
+    int hPieces;
+    int vPieces;
+    boolean flyoutFlag = false;
+    Texture boardBlankTexture;
+    Texture boardGoTexture;
     Image topBar;
     Image follower;
+    Image flyout;
     public GameScreen(final ConnectX game) {
         this.game = game;
         
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 1600, 900);
-        gameStage = new Stage(game.viewport);
+        gameStage = new Stage(game.viewport, game.batch);
         Gdx.input.setInputProcessor(gameStage);
         
+        hPieces = game.gameBoard.getBoardWidth();
+        vPieces = game.gameBoard.getBoardHeight();
         
-        follower = new Image(new SpriteDrawable(new Sprite(game.goPiece)));
+        if(hPieces <= 7){
+            boardBlankTexture = game.blank96Piece;
+            boardGoTexture = game.go96Piece;
+            follower = new Image(new SpriteDrawable(new Sprite(boardBlankTexture)));
+        }else{
+            boardBlankTexture = game.blank48Piece;
+            boardGoTexture = game.go48Piece;
+            follower = new Image(new SpriteDrawable(new Sprite(boardBlankTexture)));
+        }
+        
+        
         follower.setPosition(-200, 850-(follower.getImageHeight()/2));
         follower.setColor(game.gameBoard.getPlayers().peek().getColor());
+        
         
         topBar = new Image(game.blankBar);
         topBar.setPosition(0, 800);
@@ -57,7 +75,7 @@ public class GameScreen implements Screen {
                 //add piece to internal board
                 //check win
                 //cycle players
-                //if(temp<0 || temp>game.gameBoard.getBoardWidth()){
+                //if(temp>0 || temp<hPieces){
                     switch(game.gameBoard.updateInternalGameBoard(temp, game.gameBoard.getPlayers().peek().peekNextPiece())){
                         case 0: game.playerQueue.clear();
                                 game.setScreen(new TitleScreen(game));
@@ -91,17 +109,51 @@ public class GameScreen implements Screen {
             public boolean mouseMoved (InputEvent event, float x, float y) {
                 //System.out.printf("Mouse X: %s\n",x);
                 //System.out.printf("temp: %s spacer: %s gap: %s\n",temp,spacer,gap);
-                temp = (int)((x-.5*spacer-gap)/(game.blank96Piece.getWidth()+gap));
-                if(temp<hPieces & temp>=0)
-                    follower.setPosition((float)((.5*spacer)+gap+(game.blank96Piece.getWidth()*temp)+(gap*(temp))),850-(follower.getImageHeight()/2));
+                temp = (int)((x-.5*spacer-gap)/(boardBlankTexture.getWidth()+gap));
+                if(temp<hPieces && temp>=0){
+                    follower.setPosition((float)((.5*spacer)+gap+(boardBlankTexture.getWidth()*temp)+(gap*(temp))),850-(follower.getImageHeight()/2));
+                }else{
+                    if(temp>hPieces)
+                        temp=hPieces-1;
+                    if(temp<0)
+                        temp=0;
+                }
                 return true;
             }
                
             
         });
         
+        
+        flyout = new Image(game.flyoutBackground);
+        flyout.setPosition(-600,0);
+        flyout.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                
+                
+            }
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                flyoutFlag = !flyoutFlag;
+                return true;
+            }
+            @Override
+            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+            }
+            @Override
+            public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+            }
+        });
+        
+
         gameStage.addActor(follower);
         gameStage.addActor(topBar);
+        gameStage.addActor(flyout);
+        
+        
+        
+        
         
     }
 
@@ -117,49 +169,94 @@ public class GameScreen implements Screen {
         //requried screen start stuff
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
-        game.batch.begin();
+        
+        
+        
+        gameStage.act();
+        gameStage.getBatch().begin();
         
         //Game Screen bread and butter
-        game.batch.draw(game.gameBackground,0,0); //this background contains boxes and dimensions for laying out the real game graphics
-        
-        
-        
+        gameStage.getBatch().draw(game.gameBackground,0,0); //this background contains boxes and dimensions for laying out the real game graphics
         
         //draw the game board dots
-        gap = (float)(800 - (game.blank96Piece.getHeight()*vPieces))/(vPieces+1);
-        spacer = (float)1600-((game.blank96Piece.getWidth()*hPieces)+(gap*(hPieces+1)));
+        gap = (float)(800 - (boardBlankTexture.getHeight()*vPieces))/(vPieces+1);
+        spacer = (float)1600-((boardBlankTexture.getWidth()*hPieces)+(gap*(hPieces+1)));
         
-        game.batch.setColor(Color.WHITE);
+        gameStage.getBatch().setColor(Color.WHITE);
         for(int i = 0; i<game.gameBoard.getBoardHeight();i++){
             for(int j = 0; j<game.gameBoard.getBoardWidth();j++){
-                game.batch.setColor(game.gameBoard.getPlayerFromID(game.gameBoard.getInternalGameBoard()[i][j]).getColor()); //set this to change based on internal board ID
+                gameStage.getBatch().setColor(game.gameBoard.getPlayerFromID(game.gameBoard.getInternalGameBoard()[i][j]).getColor()); //set this to change based on internal board ID
                 
-                x = (float)((.5*spacer)+gap+(game.blank96Piece.getWidth()*j)+(gap*(j)));
-                y = (float)(800 - ((gap+(game.blank96Piece.getHeight()*i)+(gap*i))+game.blank96Piece.getHeight()));
+                x = (float)((.5*spacer)+gap+(boardBlankTexture.getWidth()*j)+(gap*(j)));
+                y = (float)(800 - ((gap+(boardBlankTexture.getHeight()*i)+(gap*i))+boardBlankTexture.getHeight()));
+                
                 if(game.gameBoard.getInternalGameBoard()[i][j]<=6){
-                    game.batch.draw(game.blank96Piece, x, y);
+                    gameStage.getBatch().draw(boardBlankTexture, x, y);
                 }else{
-                    game.batch.draw(game.goPiece, x, y);
+                    gameStage.getBatch().draw(boardGoTexture, x, y);
                 }
             }
         }
         if(game.gameBoard.getPlayers().peek().peekNextPiece()<=6){
-            follower.setDrawable(new SpriteDrawable(new Sprite(game.blank96Piece)));
+            if(hPieces > 7){
+                follower.setDrawable(new SpriteDrawable(new Sprite(game.blank48Piece)));
+            }else{
+                follower.setDrawable(new SpriteDrawable(new Sprite(game.blank96Piece)));
+            }
         }else{
-            follower.setDrawable(new SpriteDrawable(new Sprite(game.goPiece)));
+            if(hPieces > 7){
+                follower.setDrawable(new SpriteDrawable(new Sprite(game.go48Piece)));
+            }else{
+                follower.setDrawable(new SpriteDrawable(new Sprite(game.go96Piece)));
+            }
         }
-        game.batch.setColor(Color.WHITE);
         
-        //System.out.println(Gdx.graphics.getDeltaTime()); // display the time between frames
+        gameStage.getBatch().setColor(Color.WHITE);
+        
+        
+        //control flyout
+        if(flyoutFlag){
+            //move flyout x to -375 
+            if(flyout.getX()>=-375)
+                flyout.setX(-375);
+            else
+                flyout.setX(flyout.getX()+10);
+        }else{
+            //move flyout to -600
+            if(flyout.getX()<=-600)
+                flyout.setX(-600);
+            else
+                flyout.setX(flyout.getX()-10);
+        }
+        
+        //draw the flyout above the background and board dots
+        //but then below the contents "in" the flyout
+        gameStage.getBatch().end();
+        gameStage.draw();
+        gameStage.getBatch().begin();
+        
+        
+        //add things to flyout
+        iterator = 0;
+        for (Player x : game.playerQueue){
+            gameStage.getBatch().setColor(x.getColor());
+            if(x.peekNextPiece()<=6){
+                gameStage.getBatch().draw(game.blank48Piece, flyout.getX()+flyout.getWidth()-70, flyout.getY()+flyout.getHeight()-20-(68*++iterator));
+            }else{
+                gameStage.getBatch().draw(game.go48Piece, flyout.getX()+flyout.getWidth()-70, flyout.getY()+flyout.getHeight()-20-(68*++iterator));;
+            }
+            //flyoutPlayerIcon.setPosition(flyout.getX()+flyout.getWidth()-70, flyout.getY()+flyout.getHeight()-75-(68*++iterator));
+            
+            
+        }
 
         //required screen end stuff
-        game.batch.end();
         
-        //if (Gdx.input.isTouched()) {
-        //        game.setScreen(new TitleScreen(game));
-        //        dispose();
-        //}
-        gameStage.draw();
+        gameStage.getBatch().setColor(Color.WHITE);
+        gameStage.getBatch().end();
+        
+        
+        
     }
 
     @Override

@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.*;
+import com.kotcrab.vis.ui.VisUI;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -25,14 +26,15 @@ public class ConnectX extends Game{
     protected Texture gameBackground;
     protected Texture titleBackground;
     protected Texture settingBackground;
-    protected Texture playerListBackground;
+    protected Texture flyoutBackground;
     //buttons
     protected Texture yellowButton;
     protected Texture redButton;
     //pieces
     protected Texture blank96Piece;
     protected Texture blank48Piece;
-    protected Texture goPiece;
+    protected Texture go96Piece;
+    protected Texture go48Piece;
     //misc
     protected Texture blankBar;
     protected Texture logo;
@@ -51,28 +53,33 @@ public class ConnectX extends Game{
                 gameBackground = new Texture(Gdx.files.internal("Backgrounds/gameBackground.png"));
                 titleBackground = new Texture(Gdx.files.internal("Backgrounds/titleBackground.jpg"));
                 settingBackground = new Texture(Gdx.files.internal("Backgrounds/settingBackground.png"));
-                playerListBackground = new Texture(Gdx.files.internal("Backgrounds/playerListBackground.png"));
+                flyoutBackground = new Texture(Gdx.files.internal("Backgrounds/playerListBackground.png"));
                 //buttons
                 redButton = new Texture(Gdx.files.internal("Buttons/titleButtonRed.png"));
                 yellowButton = new Texture(Gdx.files.internal("Buttons/titleButtonYellow.png"));
                 //pieces
                 blank96Piece = new Texture(Gdx.files.internal("Pieces/96x96test.png"));
                 blank48Piece = new Texture(Gdx.files.internal("Pieces/48x48test.png"));
-                goPiece = new Texture(Gdx.files.internal("Pieces/96x96testGO.png"));
+                go96Piece = new Texture(Gdx.files.internal("Pieces/96x96Go.png"));
+                go48Piece = new Texture(Gdx.files.internal("Pieces/48x48Go.png"));
                 //misc
                 blankBar = new Texture(Gdx.files.internal("Misc/blankBar.png"));
-                logo = new Texture(Gdx.files.internal("Misc/ConnectXLogo.png"));
+                logo = new Texture(Gdx.files.internal("Misc/LOGOv3-quarter-res.png"));
                 gradientBar = new Texture(Gdx.files.internal("Misc/GradientBar.png"));
-                mySkin = new Skin(Gdx.files.internal("Custom/custom.json"));
+                mySkin = new Skin(Gdx.files.internal("ConnectXSkin/ConnectXSkin.json"));
                 defaultSkin = new Skin(Gdx.files.internal("default/skin/uiskin.json"));
                 //game logic
                 playerQueue = new LinkedList<>();
                 
                 viewport = new FitViewport(1600,900);
                 
-                //temporarily open the game screen rather than the title screen, for development
-                //this.setScreen(new TitleScreen(this));
+                
+                VisUI.load();
+                //temporarily open different screens rather than the title screen, for speedy testing
                 this.setScreen(new TitleScreen(this));
+                //this.setScreen(new SettingScreen(this));
+                //this.setScreen(new GameScreen(this));
+                //this.setScreen(new HelpScreen(this));
 	}
 
 	public void render() {

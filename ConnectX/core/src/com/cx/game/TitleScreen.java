@@ -17,6 +17,7 @@ public class TitleScreen implements Screen{
     protected Button helpButton;
     protected Button quitButton;
     protected Stage titleStage;
+    protected Image logoImage;
     protected float shift = -600;
     protected float rightshift;
     
@@ -30,9 +31,12 @@ public class TitleScreen implements Screen{
         titleStage = new Stage(game.viewport);
         Gdx.input.setInputProcessor(titleStage);
         
+        logoImage = new Image(game.logo);
+        logoImage.setPosition(25, 900-15-game.logo.getHeight());
+        logoImage.setScale(.8f);
         
         //Main Menu Buttons
-        playButton = new TextButton("PLAY",game.mySkin);
+        playButton = new TextButton("PLAY",game.mySkin, "Left");
         playButton.setSize(600, 100);
         playButton.setPosition(shift, 220);
         playButton.addListener(new InputListener(){
@@ -59,7 +63,7 @@ public class TitleScreen implements Screen{
             }
         });
         
-        helpButton = new TextButton("HELP",game.mySkin);
+        helpButton = new TextButton("HELP",game.mySkin, "Left");
         helpButton.setSize(600, 100);
         helpButton.setPosition(shift, 100);
         helpButton.addListener(new InputListener(){
@@ -83,7 +87,7 @@ public class TitleScreen implements Screen{
             }
         });
         
-        quitButton = new TextButton("QUIT",game.mySkin, "right");
+        quitButton = new TextButton("QUIT",game.mySkin, "Right");
         quitButton.setSize(400, 66);
         quitButton.setPosition(titleStage.getWidth()-quitButton.getWidth()-shift, 80);
         quitButton.addListener(new InputListener(){
@@ -134,7 +138,7 @@ public class TitleScreen implements Screen{
         
         
         game.batch.draw(game.titleBackground,(titleStage.getWidth()/2)-(game.titleBackground.getWidth()/2),(titleStage.getHeight()/2)-(game.titleBackground.getHeight()/2));
-        game.batch.draw(game.logo, 25, 750);
+        
         
         //animating the buttons entering the screen
         //this animation is done wrong in that it needs to be in terms of frame rate so that 
@@ -150,6 +154,9 @@ public class TitleScreen implements Screen{
             rightshift = titleStage.getWidth()-quitButton.getWidth()-shift;
             quitButton.setX(rightshift);
         }
+        
+        
+        titleStage.addActor(logoImage);
         
         //finish render
         game.batch.end();

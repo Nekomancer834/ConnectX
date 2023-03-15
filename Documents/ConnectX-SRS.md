@@ -77,6 +77,7 @@ The software being provided is Connect X. Its purpose is to provide friendly com
 
 https://whatsgoodtodo.co.uk/official-hasbro-giant-connect-4-review/ for the picture used in a mockup and also reference board scale
 https://github.com/Nekomancer834/ConnectX for ideas and documents.
+https://github.com/kotcrab/vis-ui/ for skins and libGDX addons
 
 
 ## 2. Overall Description
@@ -129,6 +130,7 @@ Help Screen to show basic functionality of the game as well as how to utilize ne
 ### 2.7 Assumptions and Dependencies
 
 - Using LibGDX for the UI
+- VisUI (https://github.com/kotcrab/vis-ui/) is used for the color pickers on the setting screen
 - 2d array will work for tracking pieces
 - 2d array tic tac toe project (for reference)
 ## 3. System Features
