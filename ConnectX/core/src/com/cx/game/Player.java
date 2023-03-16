@@ -61,7 +61,7 @@ public class Player {
         if(id==0){
             this.goID = id;
         }else{
-            this.goID = id+6;
+            this.goID = id+10;
         }
     }
     private void setName(String name){
