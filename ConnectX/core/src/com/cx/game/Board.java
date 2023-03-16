@@ -114,10 +114,11 @@ public class Board {
         h = board.length;
         w = board[0].length;
         for(int i = h-1; i >0 ; i--){
-            for(int j = 0; j < w-1; j++){
+            for(int j = 0; j < w; j++){
                 if(board[i][j]>10 && board[i][j]<=20){
-                    if(i>1 && i<h && j>0 && j<w-1 && false){//the last part of the if is a debug flag to prevent checking if set to false
+                    if(i>1 && i<h && j>0 && j<w-1 && true){//the last part of the if is a debug flag to prevent checking if set to false
                         //check up
+                        //board[i][j]=board[i][j]-10; //cause any space that meets this requirement to turn inert for visualization in all go mode
                         System.out.printf("up location: i=%s, j=%s\n", i,j);
                         if((board[i][j]==board[i-1][j-1] || board[i][j]-10==board[i-1][j-1]) &&
                            (board[i][j]==board[i-1][j+1] || board[i][j]-10==board[i-1][j+1]) &&
@@ -126,8 +127,9 @@ public class Board {
                             board[i-1][j]=board[i][j]-10;
                         }   
                     }
-                    if(i>0 && i<h-2 && j>0 && j<w-1 && false){
+                    if(i>0 && i<h-2 && j>0 && j<w-1 && true){
                         //check down
+                        //board[i][j]=board[i][j]-10; //cause any space that meets this requirement to turn inert for visualization in all go mode
                         System.out.printf("down location: i=%s, j=%s\n", i,j);
                         if((board[i][j]==board[i+1][j-1] || board[i][j]-10==board[i+1][j-1]) &&
                            (board[i][j]==board[i+1][j+1] || board[i][j]-10==board[i+1][j+1]) &&
@@ -137,20 +139,22 @@ public class Board {
                         }
                     }
 
-                    if(i>0 && i<h-1 && j>1 && j<=w && true){
+                    if(i>0 && i<h-1 && j>1 && j<w && true){
                         //check left
+                        //board[i][j]=board[i][j]-10; //cause any space that meets this requirement to turn inert for visualization in all go mode
                         System.out.printf("left location: i=%s, j=%s\n", i,j);
                         if((board[i][j]==board[i+1][j-1] || board[i][j]-10==board[i+1][j-1]) &&
                            (board[i][j]==board[i-1][j-1] || board[i][j]-10==board[i-1][j-1]) &&
                            (board[i][j]==board[i][j-2] || board[i][j]-10==board[i][j-2])       ){
                             System.out.printf("replacement at: %s,%s\n", i, j-1);
                             //board[i][j-1]=board[i][j]-10;
-                            board[i][j]=board[i][j]-10;
+                            
                         }
                     }
 
-                    if(i>0 && i<h-1 && j>=0 && j<w-2 && false){
+                    if(i>0 && i<h-1 && j>=0 && j<w-2 && true){
                         //check right
+                        //board[i][j]=board[i][j]-10; //cause any space that meets this requirement to turn inert for visualization in all go mode
                         System.out.printf("right location: i=%s, j=%s\n", i,j);
                         if((board[i][j]==board[i+1][j+1] || board[i][j]-10==board[i+1][j+1]) &&
                            (board[i][j]==board[i-1][j+1] || board[i][j]-10==board[i-1][j+1]) &&
