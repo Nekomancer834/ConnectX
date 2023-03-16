@@ -18,7 +18,8 @@ public class Board {
     private HashMap<Integer, Player> playerIDs = new HashMap<Integer, Player>();
     private int[] tracker;
     private Player emptyPlayer = new Player();
-    long now;
+    private int h;
+    private int w;
     
     
     Board(){
@@ -45,7 +46,6 @@ public class Board {
     }
     
     public int updateInternalGameBoard(int mouseColumn, int id){
-        checkGoReplacement(internalGameBoard);
         //write the id of the current player to the lowest unoccupied spot
         if(tracker[mouseColumn]>=0){
             internalGameBoard[tracker[mouseColumn]][mouseColumn] = id;
@@ -53,6 +53,7 @@ public class Board {
             //after placing piece on board and iterating the tracker, check if the move was a win
             if(winHandler()){
                 System.out.println("Win detected");
+                System.out.println(toString());
                 return 0;
             }
             else{
@@ -67,7 +68,7 @@ public class Board {
         }
     }
     public boolean winHandler(){
-        //this.internalGameBoard = checkGoReplacement(this.internalGameBoard);
+        checkGoReplacement(this.internalGameBoard);
         int winReturn = checkWin(this.internalGameBoard);
         if(winReturn != 999 ){
             System.out.println(winReturn);
@@ -78,25 +79,30 @@ public class Board {
     }
     private int checkWin(int[][] board){
         //tracking fixed, only perform check if i and j are within limits respective to each check type
-        now = System.currentTimeMillis();  
+         
         for(int i = board.length-1; i >= 0; i--){
             for(int j = 0; j < board[i].length; j++){
                 //this if is vital for not find a 4 in a row of ID 0
-                if(board[i][j]!=0){
+                if(board[i][j]>0){
                     if(i>=4)
-                        if((board[i-1][j]==board[i][j] || board[i-1][j]==(board[i][j]+6) || board[i-1][j]==(board[i][j]-6)) &&
-                           (board[i-2][j]==board[i][j] || board[i-2][j]==(board[i][j]+6) || board[i-2][j]==(board[i][j]-6)) &&
-                           (board[i-3][j]==board[i][j] || board[i-3][j]==(board[i][j]+6) || board[i-3][j]==(board[i][j]-6))   )
+                        if((board[i-1][j]==board[i][j] || board[i-1][j]==(board[i][j]+10) || board[i-1][j]==(board[i][j]-10)) &&
+                           (board[i-2][j]==board[i][j] || board[i-2][j]==(board[i][j]+10) || board[i-2][j]==(board[i][j]-10)) &&
+                           (board[i-3][j]==board[i][j] || board[i-3][j]==(board[i][j]+10) || board[i-3][j]==(board[i][j]-10))   )
                             return board[i][j];
                     if(j<board[i].length-4)
-                        if((board[i][j+1]==board[i][j] || board[i][j+1]==(board[i][j]+6) || board[i][j+1]==(board[i][j]-6)) &&
-                           (board[i][j+2]==board[i][j] || board[i][j+2]==(board[i][j]+6) || board[i][j+2]==(board[i][j]-6)) &&
-                           (board[i][j+3]==board[i][j] || board[i][j+3]==(board[i][j]+6) || board[i][j+3]==(board[i][j]-6))   )
+                        if((board[i][j+1]==board[i][j] || board[i][j+1]==(board[i][j]+10) || board[i][j+1]==(board[i][j]-10)) &&
+                           (board[i][j+2]==board[i][j] || board[i][j+2]==(board[i][j]+10) || board[i][j+2]==(board[i][j]-10)) &&
+                           (board[i][j+3]==board[i][j] || board[i][j+3]==(board[i][j]+10) || board[i][j+3]==(board[i][j]-10))   )
                             return board[i][j];
                     if(i>=4 && j<board[i].length-4)
-                        if((board[i-1][j+1]==board[i][j] || board[i-1][j+1]==(board[i][j]+6) || board[i-1][j+1]==(board[i][j]-6)) &&
-                           (board[i-2][j+2]==board[i][j] || board[i-2][j+2]==(board[i][j]+6) || board[i-2][j+2]==(board[i][j]-6)) &&
-                           (board[i-3][j+3]==board[i][j] || board[i-3][j+3]==(board[i][j]+6) || board[i-3][j+3]==(board[i][j]-6))   )
+                        if((board[i-1][j+1]==board[i][j] || board[i-1][j+1]==(board[i][j]+10) || board[i-1][j+1]==(board[i][j]-10)) &&
+                           (board[i-2][j+2]==board[i][j] || board[i-2][j+2]==(board[i][j]+10) || board[i-2][j+2]==(board[i][j]-10)) &&
+                           (board[i-3][j+3]==board[i][j] || board[i-3][j+3]==(board[i][j]+10) || board[i-3][j+3]==(board[i][j]-10))   )
+                            return board[i][j];
+                    if(i>=4 && j>=4)
+                        if((board[i-1][j-1]==board[i][j] || board[i-1][j-1]==(board[i][j]+10) || board[i-1][j-1]==(board[i][j]-10)) &&
+                           (board[i-2][j-2]==board[i][j] || board[i-2][j-2]==(board[i][j]+10) || board[i-2][j-2]==(board[i][j]-10)) &&
+                           (board[i-3][j-3]==board[i][j] || board[i-3][j-3]==(board[i][j]+10) || board[i-3][j-3]==(board[i][j]-10))   )
                             return board[i][j];
                 }
             }
@@ -104,35 +110,83 @@ public class Board {
         return 999;
     }
     //this is really broken, disabled until i can figure out how to only make it run when a go piece is present in one of the four spaces
-    private int[][] checkGoReplacement(int[][] board){
-        for(int i = board.length-2; i >1 ; i--){
-            for(int j = 1; j < board[i].length-1; j++){
-                    
-                    if(board[i][j]!=0){
-                        // top piece is the fourth
-                        if((board[i+1][j]==  players.peek().getNextPiece()) &&
-                           (board[i+1][j]==board[i][j-1]) &&
-                           (board[i+1][j]== board[i][j+1]  ) ){
-                            board[i  ][j]= board[i+1][j];
+    private void checkGoReplacement(int[][] board){
+        h = board.length;
+        w = board[0].length;
+        for(int i = h-1; i >0 ; i--){
+            for(int j = 0; j < w-1; j++){
+                if(board[i][j]>10 && board[i][j]<=20){
+                    if(i>1 && i<h && j>0 && j<w-1 && false){//the last part of the if is a debug flag to prevent checking if set to false
+                        //check up
+                        System.out.printf("up location: i=%s, j=%s\n", i,j);
+                        if((board[i][j]==board[i-1][j-1] || board[i][j]-10==board[i-1][j-1]) &&
+                           (board[i][j]==board[i-1][j+1] || board[i][j]-10==board[i-1][j+1]) &&
+                           (board[i][j]==board[i-2][j] || board[i][j]-10==board[i-2][j])       ){
+                            System.out.printf("replacement at: %s,%s\n", i-1, j);
+                            board[i-1][j]=board[i][j]-10;
+                        }   
+                    }
+                    if(i>0 && i<h-2 && j>0 && j<w-1 && false){
+                        //check down
+                        System.out.printf("down location: i=%s, j=%s\n", i,j);
+                        if((board[i][j]==board[i+1][j-1] || board[i][j]-10==board[i+1][j-1]) &&
+                           (board[i][j]==board[i+1][j+1] || board[i][j]-10==board[i+1][j+1]) &&
+                           (board[i][j]==board[i+2][j] || board[i][j]-10==board[i+2][j])       ){
+                            System.out.printf("replacement at: %s,%s\n", i+1, j);
+                            board[i+1][j]=board[i][j]-10;
+                        }
+                    }
+
+                    if(i>0 && i<h-1 && j>1 && j<=w && true){
+                        //check left
+                        System.out.printf("left location: i=%s, j=%s\n", i,j);
+                        if((board[i][j]==board[i+1][j-1] || board[i][j]-10==board[i+1][j-1]) &&
+                           (board[i][j]==board[i-1][j-1] || board[i][j]-10==board[i-1][j-1]) &&
+                           (board[i][j]==board[i][j-2] || board[i][j]-10==board[i][j-2])       ){
+                            System.out.printf("replacement at: %s,%s\n", i, j-1);
+                            //board[i][j-1]=board[i][j]-10;
+                            board[i][j]=board[i][j]-10;
+                        }
+                    }
+
+                    if(i>0 && i<h-1 && j>=0 && j<w-2 && false){
+                        //check right
+                        System.out.printf("right location: i=%s, j=%s\n", i,j);
+                        if((board[i][j]==board[i+1][j+1] || board[i][j]-10==board[i+1][j+1]) &&
+                           (board[i][j]==board[i-1][j+1] || board[i][j]-10==board[i-1][j+1]) &&
+                           (board[i][j]==board[i][j+2] || board[i][j]-10==board[i][j+2])       ){
+                            System.out.printf("replacement at: %s,%s\n", i, j+1);
+                            board[i][j+1]=board[i][j]-10;
                         }
                         
-                        // left piece is the fourth
-                        else if((board[i+1][j]==board[i][j+1]) &&
-                           (board[i+1][j]==board[i-1][j]) &&
-                           (board[i+1][j]==players.peek().getNextPiece())   ){
-                            board[i  ][j]=board[i+1][j];
-                        }
-                    // right piece is the fourth
-                        else if((board[i+1][j]==board[i][j-1]) &&
-                           (board[i+1][j]==board[i-1][j]) &&
-                           (board[i+1][j]==players.peek().getNextPiece())   ){
-                            board[i  ][j]=board[i+1][j];
-                        }
-                       
                     }
+                }   
+                /*
+                if(board[i][j]>=11 && board[i][j]<=20)
+                
+                if(board[i][j]!=0){
+                    // top piece is the fourth
+                    if((board[i+1][j]==  players.peek().getNextPiece()) &&
+                       (board[i+1][j]==board[i][j-1]) &&
+                       (board[i+1][j]== board[i][j+1]  ) ){
+                        board[i  ][j]= board[i+1][j];
+                    }
+                    // left piece is the fourth
+                    else if((board[i+1][j]==board[i][j+1]) &&
+                       (board[i+1][j]==board[i-1][j]) &&
+                       (board[i+1][j]==players.peek().getNextPiece())   ){
+                        board[i  ][j]=board[i+1][j];
+                    }
+                    // right piece is the fourth
+                    else if((board[i+1][j]==board[i][j-1]) &&
+                       (board[i+1][j]==board[i-1][j]) &&
+                       (board[i+1][j]==players.peek().getNextPiece())   ){
+                        board[i  ][j]=board[i+1][j];
+                    }
+                }
+                */
             }
         }
-        return board;
     }
     
     
@@ -174,7 +228,7 @@ public class Board {
         for(int i = 0; i <= internalGameBoard.length-1; i++){
             boardAsString += "|";
             for(int j = 0; j <= internalGameBoard[i].length-1; j++){
-                boardAsString += internalGameBoard[i][j]+" "; 
+                boardAsString += internalGameBoard[i][j]+"\t"; 
             }
             boardAsString += "|\n";
             
