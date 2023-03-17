@@ -15,7 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 
 /**
@@ -35,12 +35,27 @@ public class GameScreen implements Screen {
     int iterator = 0;
     int hPieces;
     int vPieces;
+    float shift1 = 0;
+    float shift2 = 0;
     boolean flyoutFlag = false;
+    boolean gameOver = false;
     Texture boardBlankTexture;
     Texture boardGoTexture;
+    Label playerNameLabel1;
+    Label playerNameLabel2;
+    Label playerNameLabel3;
+    Label playerNameLabel4;
+    Label playerNameLabel5;
+    Label playerNameLabel6;
+    Label[] playerNameList = new Label[6];
+    Label winnerName;
+    TextButton helpButton;
+    TextButton endGameButton;
     Image topBar;
     Image follower;
     Image flyout;
+    Image gameOverBanner;
+    
     public GameScreen(final ConnectX game) {
         this.game = game;
         
@@ -72,23 +87,14 @@ public class GameScreen implements Screen {
         topBar.addListener(new InputListener(){
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                //add piece to internal board
-                //check win
-                //cycle players
-                //if(temp>0 || temp<hPieces){
                     switch(game.gameBoard.updateInternalGameBoard(temp, game.gameBoard.getPlayers().peek().peekNextPiece())){
-                        case 0: game.playerQueue.clear();
-                                game.setScreen(new TitleScreen(game));
-                                dispose();
+                        case 0: gameOver = true;
                                 break;
                         case 1: follower.setColor(game.gameBoard.getPlayers().peek().getColor());
                                 break;
                         case 2: System.out.println("not a valid move");
                         default: break; 
                     }
-                //}
-                
-                
                 //in the future, only act on click if above board not to left or right
                 //game.setScreen(new TitleScreen(game));
                 //dispose();
@@ -96,19 +102,12 @@ public class GameScreen implements Screen {
             }
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                //outputLabel.setText("Press a Button");
-                //System.out.println("secret bar released");
-                //game.setScreen(new TitleScreen(game));
-                //dispose();
             }
             @Override
             public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                //System.out.println("secret bar entered");
             }
             @Override
             public boolean mouseMoved (InputEvent event, float x, float y) {
-                //System.out.printf("Mouse X: %s\n",x);
-                //System.out.printf("temp: %s spacer: %s gap: %s\n",temp,spacer,gap);
                 temp = (int)((x-.5*spacer-gap)/(boardBlankTexture.getWidth()+gap));
                 if(temp<hPieces && temp>=0){
                     follower.setPosition((float)((.5*spacer)+gap+(boardBlankTexture.getWidth()*temp)+(gap*(temp))),850-(follower.getImageHeight()/2));
@@ -124,14 +123,38 @@ public class GameScreen implements Screen {
             
         });
         
+        gameOverBanner = new Image(game.gameOverBanner);
+        gameOverBanner.setPosition(-1600, 0);
+        gameOverBanner.addListener(new InputListener(){
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                game.playerQueue.clear();
+                game.setScreen(new TitleScreen(game)); //move this and below to event handler for end game card
+                dispose();
+                //in the future, only act on click if above board not to left or right
+                //game.setScreen(new TitleScreen(game));
+                //dispose();
+                return true;
+            }
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+            }
+            @Override
+            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+            }
+            @Override
+            public boolean mouseMoved (InputEvent event, float x, float y) {
+                return true;
+            }
+               
+            
+        });
         
         flyout = new Image(game.flyoutBackground);
         flyout.setPosition(-600,0);
         flyout.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                
-                
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
@@ -146,10 +169,101 @@ public class GameScreen implements Screen {
             }
         });
         
+        helpButton = new TextButton("HELP",game.mySkin, "Left");
+        helpButton.setSize(200, 33);
+        helpButton.setPosition(-1600, 80);
+        helpButton.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                System.out.println("not implemented");
+                
+                
+            }
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                
+                return true;
+            }
+            @Override
+            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                shift1-=10;
+                
+            }
+            @Override
+            public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                shift1+=10;
+            }
+        });
+        
+        endGameButton = new TextButton("END GAME",game.mySkin, "Left");
+        endGameButton.setSize(200, 33);
+        endGameButton.setPosition(-1600, 80);
+        endGameButton.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                game.playerQueue.clear();
+                game.setScreen(new TitleScreen(game)); //move this and below to event handler for end game card
+                dispose();
+                
+                
+            }
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                
+                return true;
+            }
+            @Override
+            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                shift2-=10;
+                
+            }
+            @Override
+            public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                shift2+=10;
+            }
+        });
+        
+        winnerName = new Label("", game.mySkin);
+        winnerName.setPosition(0,0);
+        winnerName.setAlignment(1);
+        
+        //this is super ugly... needs to change
+        playerNameLabel1 = new Label("", game.mySkin);
+        playerNameList[0] = playerNameLabel1;
+        playerNameLabel2 = new Label("", game.mySkin);
+        playerNameList[1] = playerNameLabel2;
+        playerNameLabel3 = new Label("", game.mySkin);
+        playerNameList[2] = playerNameLabel3;
+        playerNameLabel4 = new Label("", game.mySkin);
+        playerNameList[3] = playerNameLabel4;
+        playerNameLabel5 = new Label("", game.mySkin);
+        playerNameList[4] = playerNameLabel5;
+        playerNameLabel6 = new Label("", game.mySkin);
+        playerNameList[5] = playerNameLabel6;
+        
+        iterator = 0;
+        for(Player x : game.playerQueue){
+            playerNameList[iterator].setPosition(-100, 0);
+            iterator++;
+        }
+        iterator = 0;
+        
+        
+        
 
         gameStage.addActor(follower);
         gameStage.addActor(topBar);
         gameStage.addActor(flyout);
+        gameStage.addActor(gameOverBanner);
+        gameStage.addActor(helpButton);
+        gameStage.addActor(endGameButton);
+        gameStage.addActor(winnerName);
+        gameStage.addActor(playerNameLabel1);
+        gameStage.addActor(playerNameLabel2);
+        gameStage.addActor(playerNameLabel3);
+        gameStage.addActor(playerNameLabel4);
+        gameStage.addActor(playerNameLabel5);
+        gameStage.addActor(playerNameLabel6);
         
         
         
@@ -166,7 +280,7 @@ public class GameScreen implements Screen {
     public void render(float delta) {
         //https://libgdx.com/wiki/graphics/2d/masking is a good resource for what I'm going to have to do for the board to have "gravity"
         
-        //requried screen start stuff
+        //required screen start stuff
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
         
@@ -229,6 +343,8 @@ public class GameScreen implements Screen {
                 flyout.setX(flyout.getX()-10);
         }
         
+        
+        
         //draw the flyout above the background and board dots
         //but then below the contents "in" the flyout
         gameStage.getBatch().end();
@@ -240,22 +356,47 @@ public class GameScreen implements Screen {
         iterator = 0;
         for (Player x : game.playerQueue){
             gameStage.getBatch().setColor(x.getColor());
+            playerNameList[iterator].setText(x.getName());
+            playerNameList[iterator].setPosition(flyout.getX()+flyout.getWidth()-140, flyout.getY()+flyout.getHeight()-63-(68*iterator));
+            helpButton.setPosition(flyout.getX()+flyout.getWidth()-315+shift1, flyout.getY()+163);
+            endGameButton.setPosition(flyout.getX()+flyout.getWidth()-315+shift2, flyout.getY()+113);
             if(x.peekNextPiece()<=6){
+                //draw player list dot and name
                 gameStage.getBatch().draw(game.blank48Piece, flyout.getX()+flyout.getWidth()-70, flyout.getY()+flyout.getHeight()-20-(68*++iterator));
+                
             }else{
                 gameStage.getBatch().draw(game.go48Piece, flyout.getX()+flyout.getWidth()-70, flyout.getY()+flyout.getHeight()-20-(68*++iterator));;
+                
             }
-            //flyoutPlayerIcon.setPosition(flyout.getX()+flyout.getWidth()-70, flyout.getY()+flyout.getHeight()-75-(68*++iterator));
-            
-            
         }
-
+        iterator = 0;
         //required screen end stuff
         
         gameStage.getBatch().setColor(Color.WHITE);
         gameStage.getBatch().end();
         
-        
+        if(gameOver){
+            //move winner banner, winner message, and winner name to screen
+            gameOverBanner.setPosition(0,0);
+            switch(game.gameBoard.getWinnerID()){
+                case 0:  winnerName.setText("draw");
+                         break;
+                default: winnerName.setText(game.gameBoard.getPlayerFromID(game.gameBoard.getWinnerID()).getName()+" wins");
+            }
+            
+            winnerName.setFontScale(1.8f);
+            winnerName.setPosition(800,430);
+            iterator=0;
+            for(Player x : game.playerQueue){
+                playerNameList[iterator++].setText("");
+            }
+            iterator=0;
+            helpButton.setPosition(-1600, 0);
+            endGameButton.setPosition(-1600, 0);
+            gameStage.draw(); //little secret: calling this here stops drawing the player list and that isn't intentional but who does it hurt? :P
+        }else{
+           gameOverBanner.setPosition(-1600,0); 
+        }
         
     }
 

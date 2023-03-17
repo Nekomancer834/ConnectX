@@ -27,6 +27,7 @@ public class ConnectX extends Game{
     protected Texture titleBackground;
     protected Texture settingBackground;
     protected Texture flyoutBackground;
+    protected Texture gameOverBanner;
     //buttons
     protected Texture yellowButton;
     protected Texture redButton;
@@ -54,6 +55,7 @@ public class ConnectX extends Game{
                 titleBackground = new Texture(Gdx.files.internal("Backgrounds/titleBackground.jpg"));
                 settingBackground = new Texture(Gdx.files.internal("Backgrounds/settingBackground.png"));
                 flyoutBackground = new Texture(Gdx.files.internal("Backgrounds/playerListBackground.png"));
+                gameOverBanner = new Texture(Gdx.files.internal("Backgrounds/gameOverBanner.png"));
                 //buttons
                 redButton = new Texture(Gdx.files.internal("Buttons/titleButtonRed.png"));
                 yellowButton = new Texture(Gdx.files.internal("Buttons/titleButtonYellow.png"));

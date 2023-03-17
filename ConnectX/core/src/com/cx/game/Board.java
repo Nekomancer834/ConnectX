@@ -17,7 +17,9 @@ public class Board {
     private int activePlayerIndex;
     private HashMap<Integer, Player> playerIDs = new HashMap<Integer, Player>();
     private int[] tracker;
+    private int trackerTotal;
     private Player emptyPlayer = new Player();
+    private int winner;
     private int h;
     private int w;
     
@@ -53,7 +55,7 @@ public class Board {
             //after placing piece on board and iterating the tracker, check if the move was a win
             if(winHandler()){
                 System.out.println("Win detected");
-                System.out.println(toString());
+                System.err.println(toString());
                 return 0;
             }
             else{
@@ -68,10 +70,19 @@ public class Board {
         }
     }
     public boolean winHandler(){
+        //replace go scenarios and chekc for 4-in-a-row
         checkGoReplacement(this.internalGameBoard);
         int winReturn = checkWin(this.internalGameBoard);
+        
+        //if board full player 0 wins (draw)
+        for(int i=0; i<tracker.length; i++){
+            trackerTotal += tracker[i];
+        }
+        if(trackerTotal==(-1*tracker.length))
+            winReturn = 0;
+        trackerTotal=0;
         if(winReturn != 999 ){
-            System.out.println(winReturn);
+            this.winner = winReturn;
             return true;
         }
             
@@ -84,22 +95,22 @@ public class Board {
             for(int j = 0; j < board[i].length; j++){
                 //this if is vital for not find a 4 in a row of ID 0
                 if(board[i][j]>0){
-                    if(i>=4)
+                    if(i>=3)
                         if((board[i-1][j]==board[i][j] || board[i-1][j]==(board[i][j]+10) || board[i-1][j]==(board[i][j]-10)) &&
                            (board[i-2][j]==board[i][j] || board[i-2][j]==(board[i][j]+10) || board[i-2][j]==(board[i][j]-10)) &&
                            (board[i-3][j]==board[i][j] || board[i-3][j]==(board[i][j]+10) || board[i-3][j]==(board[i][j]-10))   )
                             return board[i][j];
-                    if(j<board[i].length-4)
+                    if(j<board[i].length-3)
                         if((board[i][j+1]==board[i][j] || board[i][j+1]==(board[i][j]+10) || board[i][j+1]==(board[i][j]-10)) &&
                            (board[i][j+2]==board[i][j] || board[i][j+2]==(board[i][j]+10) || board[i][j+2]==(board[i][j]-10)) &&
                            (board[i][j+3]==board[i][j] || board[i][j+3]==(board[i][j]+10) || board[i][j+3]==(board[i][j]-10))   )
                             return board[i][j];
-                    if(i>=4 && j<board[i].length-4)
+                    if(i>=4 && j<board[i].length-3)
                         if((board[i-1][j+1]==board[i][j] || board[i-1][j+1]==(board[i][j]+10) || board[i-1][j+1]==(board[i][j]-10)) &&
                            (board[i-2][j+2]==board[i][j] || board[i-2][j+2]==(board[i][j]+10) || board[i-2][j+2]==(board[i][j]-10)) &&
                            (board[i-3][j+3]==board[i][j] || board[i-3][j+3]==(board[i][j]+10) || board[i-3][j+3]==(board[i][j]-10))   )
                             return board[i][j];
-                    if(i>=4 && j>=4)
+                    if(i>=3 && j>=3)
                         if((board[i-1][j-1]==board[i][j] || board[i-1][j-1]==(board[i][j]+10) || board[i-1][j-1]==(board[i][j]-10)) &&
                            (board[i-2][j-2]==board[i][j] || board[i-2][j-2]==(board[i][j]+10) || board[i-2][j-2]==(board[i][j]-10)) &&
                            (board[i-3][j-3]==board[i][j] || board[i-3][j-3]==(board[i][j]+10) || board[i-3][j-3]==(board[i][j]-10))   )
@@ -223,6 +234,9 @@ public class Board {
             return emptyPlayer;
         else
             return playerIDs.get(id);
+    }
+    public int getWinnerID(){
+        return winner;
     }
     
     
