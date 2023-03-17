@@ -42,8 +42,6 @@ public class TitleScreen implements Screen{
         playButton.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                //outputLabel.setText("Press a Button");
-                System.out.println("button released");
                 game.setScreen(new SettingScreen(game));
                 dispose();
                 

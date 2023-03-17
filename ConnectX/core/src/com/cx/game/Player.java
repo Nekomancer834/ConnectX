@@ -38,7 +38,7 @@ public class Player {
         setNextPiece(0);
     }
     public int getNextPiece(){
-        //grab go odds from ConnectX class
+        //line 74 sets the rarity of go pieces in mixed mode
         //use three sets of odds: 0, custom, and 100
         //the odds are 0 if go is disabled, custom based on balance tests, 100 for always provide a go piece
         
