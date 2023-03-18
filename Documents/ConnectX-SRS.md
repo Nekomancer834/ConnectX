@@ -52,6 +52,7 @@ Appendix E: [Github Link](#appendix-e-github-link)
 | all    | 10/9/22 | initial changes                               | 1.0       |
 | all    | 11/5/22 | update for phase 2                            | 1.1       |
 | all    | 2/14/23 | update for phase 4 and new fatures and changes| 1.2       |
+| Trent  | 3/18/23 | update Appendix D to reflect current software | 1.6       |
 
 
 ## 1. Introduction
@@ -76,7 +77,7 @@ The software being provided is Connect X. Its purpose is to provide friendly com
 ### 1.5 References
 
 https://whatsgoodtodo.co.uk/official-hasbro-giant-connect-4-review/ for the picture used in a mockup and also reference board scale
-https://github.com/Nekomancer834/ConnectX for ideas and documents.
+https://github.com/Nekomancer834/ConnectX for source, releases, and documents.
 https://github.com/kotcrab/vis-ui/ for skins and libGDX addons
 
 
@@ -118,7 +119,7 @@ The game will run on any x86 operating system capable of running Java 1.8 or hig
 
 ### 2.5 Design and Implementation Constraints
 
-This software should run within the limit of 1GB of ram allocated to the program.
+This software should run within the targeted limit of 1GB of ram allocated to the program.
 The program runs on java therefore the hardware also needs to be capable of running java.
 The device needs to be capable of rendering openGL windows.
 More limits will become apparent as development progresses.
@@ -300,7 +301,7 @@ This software uses the standard java interfaces.
 
 
 ### 4.3 Software Interfaces
-This software uses the standard java and openGL interfaces.
+This software uses the standard java and libGDX/openGL interfaces.
 
 
 ### 4.4 Communications Interfaces
@@ -370,12 +371,8 @@ Gantt Chart Semester-2\
 
 ## Appendix D: Issues List
 
-TBD - Help Screen
-* The help screen is a must for anyone confused about how Connect X is different from Connect 4 therefore this is critical.\ 
-  The layout of this menu should be straightforward and possibly include a lot of pages of details.
-
-TBD - Game menu missing planned features
-* Several features for the game screen outlined in 4.1 such as a help button are missing from the game board UI.
+TBD - Help Screen Updates
+* while the help screen is implemented as of the v6 release, feedback outside the dev team may warrant updates to the help menu and its contents
 
 ## Appendix E: Github Link
 
