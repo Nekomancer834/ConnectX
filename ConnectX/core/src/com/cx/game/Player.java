@@ -29,6 +29,18 @@ public class Player {
         getNextPiece();
         getNextPiece();
     }
+    Player(Color color, int id, String name){
+        //Player Constructor
+        setName(name);
+        setColor(color);
+        setOdds(0); //if no odds specified, always provide base ID piece
+        setID(id);
+        //this is doubled because the way the first piece is generated always returns null on the first call
+        //of getNextPiece(). this happens to every player so it doesn't really mess with the odds of any one person getting
+        //something better
+        getNextPiece();
+        getNextPiece();
+    }
     
     Player(){
         //Default player constructor

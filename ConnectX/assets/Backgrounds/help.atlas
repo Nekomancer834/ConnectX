@@ -1,0 +1,53 @@
+
+help.png
+size: 2048, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+helpBackground1
+  rotate: false
+  xy: 2, 2
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1
+helpBackground4
+  rotate: false
+  xy: 2, 904
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1
+
+help2.png
+size: 2048, 2048
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+helpBackground3
+  rotate: false
+  xy: 2, 904
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1
+helpBackground5
+  rotate: false
+  xy: 2, 2
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1
+
+help3.png
+size: 2048, 1024
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+helpBackground2
+  rotate: false
+  xy: 2, 2
+  size: 1600, 900
+  orig: 1600, 900
+  offset: 0, 0
+  index: -1

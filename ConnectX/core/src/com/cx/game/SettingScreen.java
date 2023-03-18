@@ -9,15 +9,11 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
-import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
-import com.kotcrab.vis.ui.*;
 import com.kotcrab.vis.ui.widget.color.*;
 
 /**
@@ -263,14 +259,12 @@ public class SettingScreen implements Screen {
 
     @Override
     public void dispose() {
-    }
-    
-    private Color colorPicker(float x, float y){
-        if (!game.gradientBar.getTextureData().isPrepared()) {
-            game.gradientBar.getTextureData().prepare();
-        }
-        Pixmap pixmap = game.gradientBar.getTextureData().consumePixmap();
-        game.gradientBar.getTextureData().disposePixmap();
-        return new Color(pixmap.getPixel((int)x, (int)(pixmap.getHeight()-y)));
+        settingStage.dispose();
+        player1Color.dispose();
+        player2Color.dispose();
+        player3Color.dispose();
+        player4Color.dispose();
+        player5Color.dispose();
+        player6Color.dispose();
     }
 }

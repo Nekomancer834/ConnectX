@@ -7,8 +7,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.graphics.g2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.*;
 import com.kotcrab.vis.ui.VisUI;
@@ -26,6 +25,7 @@ public class ConnectX extends Game{
     protected Texture gameBackground;
     protected Texture titleBackground;
     protected Texture settingBackground;
+    protected TextureAtlas helpBackground;
     protected Texture flyoutBackground;
     protected Texture gameOverBanner;
     //buttons
@@ -56,6 +56,9 @@ public class ConnectX extends Game{
                 settingBackground = new Texture(Gdx.files.internal("Backgrounds/settingBackground.png"));
                 flyoutBackground = new Texture(Gdx.files.internal("Backgrounds/playerListBackground.png"));
                 gameOverBanner = new Texture(Gdx.files.internal("Backgrounds/gameOverBanner.png"));
+                helpBackground = new TextureAtlas(Gdx.files.internal("Backgrounds/help.atlas"));
+                //for(int i=0;i<1;i++)
+                //    helpBackground[i]=new Texture(Gdx.files.internal("Backgrounds/helpBackground"+(i+1)+".png"));
                 //buttons
                 redButton = new Texture(Gdx.files.internal("Buttons/titleButtonRed.png"));
                 yellowButton = new Texture(Gdx.files.internal("Buttons/titleButtonYellow.png"));

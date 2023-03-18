@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.cx.game;
 
 import com.badlogic.gdx.Gdx;
@@ -6,71 +10,92 @@ import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.scenes.scene2d.*;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 
-/**
- *
- * @author Trent
- */
-public class TitleScreen implements Screen{
+public class HelpScreen implements Screen{
     protected final ConnectX game;
-    protected Screen thisScreen;
+    protected Screen callingScreen;
     protected OrthographicCamera camera;
-    protected Button playButton;
-    protected Button helpButton;
-    protected Button quitButton;
-    protected Stage titleStage;
-    protected Image logoImage;
-    protected float shift = -600;
-    protected float rightshift;
+    protected Stage helpStage;
+    protected TextButton nextButton;
+    protected TextButton lastButton;
+    protected TextButton backButton;
+    protected int helpPage;
     
-    public TitleScreen(final ConnectX game) {
+    public HelpScreen(final ConnectX game, Screen lastScreen){
         //assign reference to the original game class
         this.game = game;
-        this.thisScreen = this;
+        this.callingScreen = lastScreen;
         //set up camera
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 1600, 900);
-        titleStage = new Stage(game.viewport);
-        Gdx.input.setInputProcessor(titleStage);
+        helpStage = new Stage(game.viewport);
+        Gdx.input.setInputProcessor(helpStage);
         
-        logoImage = new Image(game.logo);
-        logoImage.setPosition(25, 900-15-game.logo.getHeight());
-        logoImage.setScale(.8f);
+        helpPage = 1;
         
-        //Main Menu Buttons
-        playButton = new TextButton("PLAY",game.mySkin, "Left");
-        playButton.setSize(600, 100);
-        playButton.setPosition(shift, 220);
-        playButton.addListener(new InputListener(){
+        nextButton = new TextButton(">",game.mySkin, "Right");
+        nextButton.setSize(200, 33);
+        nextButton.setPosition(helpStage.getWidth()-nextButton.getWidth(), 80);
+        nextButton.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                game.setScreen(new SettingScreen(game));
+                //move to next help background
+                //if at x, don't do anything
+                if(game.helpBackground.findRegion("helpBackground"+(helpPage+1))!=null)
+                    helpPage++;
+                
+                
+                //Gdx.app.exit();
+                
+            }
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                
+            }
+            @Override
+            public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+            }
+        });
+        
+        lastButton = new TextButton("<",game.mySkin, "Left");
+        lastButton.setSize(200, 33);
+        lastButton.setPosition(0, 80);
+        lastButton.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                //move to previous help background
+                //if at 0, don't do anything
+                if(game.helpBackground.findRegion("helpBackground"+(helpPage-1))!=null)
+                    helpPage--;
+                
+                
+            }
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+            @Override
+            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+                
+            }
+            @Override
+            public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
+            }
+        });
+        
+        backButton = new TextButton("BACK",game.mySkin, "Right");
+        backButton.setSize(200, 33);
+        backButton.setPosition(helpStage.getWidth()-nextButton.getWidth(), 40);
+        backButton.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                game.setScreen(callingScreen);
+                callingScreen.resume();
                 dispose();
                 
-            }
-            @Override
-            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-            @Override
-            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                playButton.moveBy(-shift, 0);
-                
-            }
-            @Override
-            public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                playButton.moveBy(shift, 0);
-            }
-        });
-        
-        helpButton = new TextButton("HELP",game.mySkin, "Left");
-        helpButton.setSize(600, 100);
-        helpButton.setPosition(shift, 100);
-        helpButton.addListener(new InputListener(){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                //System.err.println("no one can help you (yet)");
-                game.setScreen(new HelpScreen(game, thisScreen));
-                
                 
             }
             @Override
@@ -79,48 +104,20 @@ public class TitleScreen implements Screen{
             }
             @Override
             public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                helpButton.moveBy(-shift, 0);
                 
             }
             @Override
             public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                helpButton.moveBy(shift, 0);
             }
         });
         
-        quitButton = new TextButton("QUIT",game.mySkin, "Right");
-        quitButton.setSize(400, 66);
-        quitButton.setPosition(titleStage.getWidth()-quitButton.getWidth()-shift, 80);
-        quitButton.addListener(new InputListener(){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                Gdx.app.exit();
-                
-            }
-            @Override
-            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-            @Override
-            public void enter (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                quitButton.moveBy(shift, 0);
-                
-            }
-            @Override
-            public void exit (InputEvent event, float x, float y, int pointer, Actor fromActor) {
-                quitButton.moveBy(-shift, 0);
-            }
-        });
-        
-        
-        //Add Buttons to the stage
-        titleStage.addActor(playButton);
-        titleStage.addActor(helpButton);
-        titleStage.addActor(quitButton);
+        helpStage.addActor(nextButton);
+        helpStage.addActor(lastButton);
+        helpStage.addActor(backButton);
     }
-
+    
     @Override
-    public void render(float delta) {
+    public void render(float delta){
         camera.update();
         
         //the contents of render are drawn top first to bottom last so backgrounds should be drawn first
@@ -128,7 +125,7 @@ public class TitleScreen implements Screen{
         
         //textures and text
         game.batch.setProjectionMatrix(camera.combined);
-        titleStage.act();
+        helpStage.act();
         game.batch.begin();
         
         //clear screen
@@ -138,32 +135,12 @@ public class TitleScreen implements Screen{
         
         
         
-        game.batch.draw(game.titleBackground,(titleStage.getWidth()/2)-(game.titleBackground.getWidth()/2),(titleStage.getHeight()/2)-(game.titleBackground.getHeight()/2));
+        game.batch.draw(game.helpBackground.findRegion("helpBackground"+helpPage),(helpStage.getWidth()/2)-(game.titleBackground.getWidth()/2),(helpStage.getHeight()/2)-(game.titleBackground.getHeight()/2));
         
         
-        //animating the buttons entering the screen
-        //this animation is done wrong in that it needs to be in terms of frame rate so that 
-        //the animations don't change if the game runs fast or slow
-        if(shift<-30){
-            shift += 40;
-            if(shift>-30){
-                shift=-30;
-            }
-
-            playButton.setX(shift);
-            helpButton.setX(shift);
-            rightshift = titleStage.getWidth()-quitButton.getWidth()-shift;
-            quitButton.setX(rightshift);
-        }
-        
-        
-        titleStage.addActor(logoImage);
-        
-        //finish render
         game.batch.end();
-        titleStage.draw();
+        helpStage.draw();
     }
-
     @Override
     public void show() {
         
@@ -171,8 +148,7 @@ public class TitleScreen implements Screen{
 
     @Override
     public void resize(int width, int height) {
-        titleStage.getViewport().update(width, height, true);
-        rightshift = titleStage.getWidth()-quitButton.getWidth()-shift;
+        helpStage.getViewport().update(width, height, true);
     }
 
     @Override
@@ -181,7 +157,6 @@ public class TitleScreen implements Screen{
 
     @Override
     public void resume() {
-        Gdx.input.setInputProcessor(titleStage);
     }
 
     @Override
@@ -190,9 +165,6 @@ public class TitleScreen implements Screen{
 
     @Override
     public void dispose() {
-        titleStage.dispose();
+        helpStage.dispose();
     }
-
-   
-    
 }

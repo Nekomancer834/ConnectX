@@ -24,40 +24,42 @@ import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
  */
 public class GameScreen implements Screen {
     
-    ConnectX game;
-    OrthographicCamera camera;
-    Stage gameStage;
-    float spacer;
-    float gap;
-    float x;
-    float y;
-    int temp;
-    int iterator = 0;
-    int hPieces;
-    int vPieces;
-    float shift1 = 0;
-    float shift2 = 0;
-    boolean flyoutFlag = false;
-    boolean gameOver = false;
-    Texture boardBlankTexture;
-    Texture boardGoTexture;
-    Label playerNameLabel1;
-    Label playerNameLabel2;
-    Label playerNameLabel3;
-    Label playerNameLabel4;
-    Label playerNameLabel5;
-    Label playerNameLabel6;
-    Label[] playerNameList = new Label[6];
-    Label winnerName;
-    TextButton helpButton;
-    TextButton endGameButton;
-    Image topBar;
-    Image follower;
-    Image flyout;
-    Image gameOverBanner;
+    protected final ConnectX game;
+    protected Screen thisScreen;
+    protected OrthographicCamera camera;
+    protected Stage gameStage;
+    protected float spacer;
+    protected float gap;
+    protected float x;
+    protected float y;
+    protected int temp;
+    protected int iterator = 0;
+    protected int hPieces;
+    protected int vPieces;
+    protected float shift1 = 0;
+    protected float shift2 = 0;
+    protected boolean flyoutFlag = false;
+    protected boolean gameOver = false;
+    protected Texture boardBlankTexture;
+    protected Texture boardGoTexture;
+    protected Label playerNameLabel1;
+    protected Label playerNameLabel2;
+    protected Label playerNameLabel3;
+    protected Label playerNameLabel4;
+    protected Label playerNameLabel5;
+    protected Label playerNameLabel6;
+    protected Label[] playerNameList = new Label[6];
+    protected Label winnerName;
+    protected TextButton helpButton;
+    protected TextButton endGameButton;
+    protected Image topBar;
+    protected Image follower;
+    protected Image flyout;
+    protected Image gameOverBanner;
     
     public GameScreen(final ConnectX game) {
         this.game = game;
+        this.thisScreen = this;
         
         camera = new OrthographicCamera();
         camera.setToOrtho(false, 1600, 900);
@@ -175,7 +177,7 @@ public class GameScreen implements Screen {
         helpButton.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                System.out.println("not implemented");
+                game.setScreen(new HelpScreen(game, thisScreen));
                 
                 
             }
@@ -412,7 +414,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void resume() {
-        
+        Gdx.input.setInputProcessor(gameStage);
     }
 
     @Override
