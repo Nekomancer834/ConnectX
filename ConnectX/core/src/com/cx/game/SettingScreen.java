@@ -243,6 +243,8 @@ public class SettingScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        settingStage.getViewport().update(width, height, true);
+        rightshift = settingStage.getWidth()-playButton.getWidth()-shift;
     }
 
     @Override
