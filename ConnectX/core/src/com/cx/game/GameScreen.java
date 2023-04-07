@@ -8,6 +8,7 @@ import java.util.HashMap;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -89,6 +90,7 @@ public class GameScreen implements Screen {
         topBar.addListener(new InputListener(){
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+               
                     switch(game.gameBoard.updateInternalGameBoard(temp, game.gameBoard.getPlayers().peek().peekNextPiece())){
                         case 0: gameOver = true;
                                 break;
@@ -114,7 +116,7 @@ public class GameScreen implements Screen {
                 if(temp<hPieces && temp>=0){
                     follower.setPosition((float)((.5*spacer)+gap+(boardBlankTexture.getWidth()*temp)+(gap*(temp))),850-(follower.getImageHeight()/2));
                 }else{
-                    if(temp>hPieces)
+                    if(temp>=hPieces)
                         temp=hPieces-1;
                     if(temp<0)
                         temp=0;
@@ -283,6 +285,8 @@ public class GameScreen implements Screen {
         //https://libgdx.com/wiki/graphics/2d/masking is a good resource for what I'm going to have to do for the board to have "gravity"
         
         //required screen start stuff
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.update();
         game.batch.setProjectionMatrix(camera.combined);
         
