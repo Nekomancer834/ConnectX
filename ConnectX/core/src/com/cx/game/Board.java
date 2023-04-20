@@ -28,7 +28,7 @@ public class Board {
         Queue<Player> defPlayers = new LinkedList<>();
         defPlayers.add(new Player());
         setPlayersQueue(defPlayers);
-        setInternalGameBoard(new int[3][3]);
+        setInternalGameBoard(new int[6][7]);
         tracker = new int[internalGameBoard[0].length];
         for(int i = 0; i<tracker.length; i++)
             this.tracker[i] = internalGameBoard.length-1;

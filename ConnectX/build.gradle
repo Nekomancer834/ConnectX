@@ -9,7 +9,6 @@ buildscript {
         google()
     }
     dependencies {
-        
 
     }
 }
@@ -41,9 +40,12 @@ allprojects {
 
 project(":desktop") {
     apply plugin: "java-library"
+    apply plugin: "java"
 
 
     dependencies {
+
+
         implementation project(":core")
         api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
@@ -53,9 +55,13 @@ project(":desktop") {
 
 project(":core") {
     apply plugin: "java-library"
+    apply plugin: "java"
 
 
     dependencies {
+        testImplementation 'junit:junit:4.12'
+        implementation 'junit:junit:4.12'
+
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
         api "com.kotcrab.vis:vis-ui:1.4.11"
         
