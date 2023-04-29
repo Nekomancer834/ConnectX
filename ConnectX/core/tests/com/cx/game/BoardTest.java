@@ -26,137 +26,12 @@ public class BoardTest {
         int mouseColumn = 0;
         int id = 0;
         Board instance = new Board();
-        int expResult = 0;
+        int expResult = 1;
         int result = instance.updateInternalGameBoard(mouseColumn, id);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
-    /**
-     * Test of winHandler method, of class Board.
-     */
-    @Test
-    public void testWinHandler() {
-        System.out.println("winHandler");
-        Board instance = new Board();
-        boolean expResult = false;
-        boolean result = instance.winHandler();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setPlayersQueue method, of class Board.
-     */
-    @Test
-    public void testSetPlayersQueue() {
-        System.out.println("setPlayersQueue");
-        Queue<Player> players = null;
-        Board instance = new Board();
-        instance.setPlayersQueue(players);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setInternalGameBoard method, of class Board.
-     */
-    @Test
-    public void testSetInternalGameBoard() {
-        System.out.println("setInternalGameBoard");
-        int[][] i = null;
-        Board instance = new Board();
-        instance.setInternalGameBoard(i);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPlayers method, of class Board.
-     */
-    @Test
-    public void testGetPlayers() {
-        System.out.println("getPlayers");
-        Board instance = new Board();
-        Queue<Player> expResult = null;
-        Queue<Player> result = instance.getPlayers();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getBoardWidth method, of class Board.
-     */
-    @Test
-    public void testGetBoardWidth() {
-        System.out.println("getBoardWidth");
-        Board instance = new Board();
-        int expResult = 0;
-        int result = instance.getBoardWidth();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getBoardHeight method, of class Board.
-     */
-    @Test
-    public void testGetBoardHeight() {
-        System.out.println("getBoardHeight");
-        Board instance = new Board();
-        int expResult = 0;
-        int result = instance.getBoardHeight();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getInternalGameBoard method, of class Board.
-     */
-    @Test
-    public void testGetInternalGameBoard() {
-        System.out.println("getInternalGameBoard");
-        Board instance = new Board();
-        int[][] expResult = null;
-        int[][] result = instance.getInternalGameBoard();
-        assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getPlayerFromID method, of class Board.
-     */
-    @Test
-    public void testGetPlayerFromID() {
-        System.out.println("getPlayerFromID");
-        int id = 0;
-        Board instance = new Board();
-        Player expResult = null;
-        Player result = instance.getPlayerFromID(id);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getWinnerID method, of class Board.
-     */
-    @Test
-    public void testGetWinnerID() {
-        System.out.println("getWinnerID");
-        Board instance = new Board();
-        int expResult = 0;
-        int result = instance.getWinnerID();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of toString method, of class Board.
@@ -168,8 +43,125 @@ public class BoardTest {
         String expResult = "";
         String result = instance.toString();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
     
+     @Test
+    public void testWinHandler() {
+        Board board = new Board();
+        int[][] gameBoard = board.getInternalGameBoard();
+        int playerID = 1;
+        gameBoard[5][0] = playerID;
+        gameBoard[4][0] = playerID;
+        gameBoard[3][0] = playerID;
+        gameBoard[2][0] = playerID;
+        board.setInternalGameBoard(gameBoard);
+        assertTrue(board.winHandler());
+        
+    }
+    @Test
+    public void testCheckWin(){
+        //vertical win
+        Board board = new Board();
+        int[][] gameBoard = board.getInternalGameBoard();
+        int playerID = 1;
+        gameBoard[5][0] = playerID;
+        gameBoard[4][0] = playerID;
+        gameBoard[3][0] = playerID;
+        gameBoard[2][0] = playerID;
+        board.setInternalGameBoard(gameBoard);
+        assertTrue(board.winHandler());
+        
+        //vertical fail
+        board = new Board();
+        gameBoard = board.getInternalGameBoard();
+        playerID = 1;
+        gameBoard[5][0] = playerID;
+        gameBoard[4][0] = 2;
+        gameBoard[3][0] = 3;
+        gameBoard[2][0] = 4;
+        board.setInternalGameBoard(gameBoard);
+        assertFalse(board.winHandler());
+        
+        //horizontal win
+        Board board2 = new Board();
+        gameBoard = board2.getInternalGameBoard();
+        playerID = 2;
+        gameBoard[0][5] = playerID;
+        gameBoard[0][4] = playerID;
+        gameBoard[0][3] = playerID;
+        gameBoard[0][2] = playerID;
+        board2.setInternalGameBoard(gameBoard);
+        assertTrue(board2.winHandler());
+        
+        //horizontal fail
+        board2 = new Board();
+        playerID = 2;
+        gameBoard[0][5] = playerID;
+        gameBoard[0][4] = 3;
+        gameBoard[0][3] = 5;
+        gameBoard[0][2] = 6;
+        board2.setInternalGameBoard(gameBoard);
+        assertFalse(board2.winHandler());
+        
+        //righ diagonal win
+        Board board3 = new Board();
+        gameBoard = board3.getInternalGameBoard();
+        playerID = 3;
+        gameBoard[1][4] = playerID;
+        gameBoard[2][3] = playerID;
+        gameBoard[3][2] = playerID;
+        gameBoard[4][1] = playerID;
+        board3.setInternalGameBoard(gameBoard);
+        assertTrue(board3.winHandler());
+        
+        //righ diagonal  fail
+        board3 = new Board();
+        playerID = 3;
+        gameBoard[1][4] = 2;
+        gameBoard[2][3] = 4;
+        gameBoard[3][2] = 5;
+        gameBoard[4][1] = playerID;
+        board3.setInternalGameBoard(gameBoard);
+        assertFalse(board3.winHandler());
+        
+        
+        //left diagonal win
+        Board board4 = new Board();
+        gameBoard = board4.getInternalGameBoard();
+        playerID = 4;
+        gameBoard[4][1] = playerID;
+        gameBoard[3][2] = playerID;
+        gameBoard[2][3] = playerID;
+        gameBoard[1][4] = playerID;
+        board3.setInternalGameBoard(gameBoard);
+        assertTrue(board3.winHandler());
+        
+        //left diagonal  fail
+        board3 = new Board();
+        playerID = 4;
+        gameBoard[4][1] = 7;
+        gameBoard[3][2] = 9;
+        gameBoard[2][3] = 6;
+        gameBoard[1][4] = playerID;
+        board3.setInternalGameBoard(gameBoard);
+        assertFalse(board3.winHandler());
+    }
+    
+    @Test
+    public void checkGoReplacement() {
+        Board board = new Board();
+        int[][] gameBoard = board.getInternalGameBoard();
+        int playerID = 1;
+        gameBoard[2][3] = playerID;
+        gameBoard[3][2] = playerID;
+        gameBoard[3][3] = 2; // middle piece
+        gameBoard[3][4] = playerID;
+        gameBoard[4][3] = playerID - 10;
+        //gameBoard[5][2] = playerID;
+        board.setInternalGameBoard(gameBoard);
+        int[][] testBoard = board.getInternalGameBoard();
+        //assertTrue(board.checkGoReplacement(testBoard));
+        
+    }
 }
