@@ -84,16 +84,16 @@ public class SettingScreen implements Screen {
                 for(int i = 1; i<= playerCount.getValue(); i++)
                     game.playerQueue.add(new Player(ColorArray[i-1], i, (int)goFeature.getValue(), "player "+(i)));
                 switch((int)playerCount.getValue()){
-                    case 2: game.gameBoard = new Board(game, game.playerQueue, (int)(7+boardScale.getValue()), (int)(6+boardScale.getValue()));
+                    case 2: game.gameBoard = new Board(game.playerQueue, (int)(7+boardScale.getValue()), (int)(6+boardScale.getValue()));
                             break;
-                    case 3: game.gameBoard = new Board(game, game.playerQueue, (int)(11+boardScale.getValue()), (int)(9+boardScale.getValue()));
+                    case 3: game.gameBoard = new Board(game.playerQueue, (int)(11+boardScale.getValue()), (int)(9+boardScale.getValue()));
                             break;
-                    case 4: game.gameBoard = new Board(game, game.playerQueue, (int)(14+boardScale.getValue()), (int)(12+boardScale.getValue()));
+                    case 4: game.gameBoard = new Board(game.playerQueue, (int)(14+boardScale.getValue()), (int)(12+boardScale.getValue()));
                             break;
                     case 5:
-                    case 6: game.gameBoard = new Board(game, game.playerQueue, (int)(16+boardScale.getValue()), (int)(14+boardScale.getValue()));
+                    case 6: game.gameBoard = new Board(game.playerQueue, (int)(16+boardScale.getValue()), (int)(14+boardScale.getValue()));
                             break;
-                    default: game.gameBoard = new Board(game, game.playerQueue, (int)((3.5*playerCount.getValue())+boardScale.getValue()), (int)((3*playerCount.getValue())+boardScale.getValue()));
+                    default: game.gameBoard = new Board(game.playerQueue, (int)((3.5*playerCount.getValue())+boardScale.getValue()), (int)((3*playerCount.getValue())+boardScale.getValue()));
                 }
                 //game.gameBoard = new Board(game, game.playerQueue, new int[(int)((3*playerCount.getValue())+boardScale.getValue())][(int)((3.5*playerCount.getValue())+boardScale.getValue())]);
                 game.setScreen(new GameScreen(game));

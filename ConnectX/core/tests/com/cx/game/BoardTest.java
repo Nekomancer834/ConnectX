@@ -4,6 +4,7 @@
  */
 package com.cx.game;
 
+import java.util.LinkedList;
 import java.util.Queue;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -16,7 +17,25 @@ public class BoardTest {
     
     public BoardTest() {
     }
+    @Test
+    public void testDefaultConstructor(){
+        System.out.println("Default Constructor");
+        Board defCon = new Board();
+        assertEquals(defCon.getInternalGameBoard(), new int[6][7]); // test empty board
+        assertEquals(defCon.getTracker().length, defCon.getBoardWidth()); // test board tracker
+    }
+    @Test
+    public void testCustomConstructor(){
+        System.out.println("Custom Constructor");
+        //add code to create new things to put into the custom constructor
+        Queue<Player> defPlayers = new LinkedList<>();
+        defPlayers.add(new Player());
 
+        Board cusCon = new Board(defPlayers, 7, 6);
+        assertEquals(cusCon.getPlayers(), defPlayers); // test if internal player queue is the same as queue we put in
+        assertEquals(cusCon.getInternalGameBoard(), new int[6][7]); // test empty board
+        assertEquals(cusCon.getTracker().length, cusCon.getBoardWidth()); // test board tracker
+    }
     /**
      * Test of updateInternalGameBoard method, of class Board.
      */
@@ -28,8 +47,14 @@ public class BoardTest {
         Board instance = new Board();
         int expResult = 1;
         int result = instance.updateInternalGameBoard(mouseColumn, id);
-        assertEquals(expResult, result);
-        
+        assertEquals(expResult, result); //successfully place piece on board
+        instance.updateInternalGameBoard(mouseColumn, id);
+        instance.updateInternalGameBoard(mouseColumn, id);
+        instance.updateInternalGameBoard(mouseColumn, id);
+        instance.updateInternalGameBoard(mouseColumn, id);
+        instance.updateInternalGameBoard(mouseColumn, id);
+        result = instance.updateInternalGameBoard(mouseColumn, id);
+        assertEquals(2, result); //identify that column is full
     }
 
 
@@ -40,27 +65,40 @@ public class BoardTest {
     public void testToString() {
         System.out.println("toString");
         Board instance = new Board();
-        String expResult = "";
+        String expResult =  "Board:\n" +
+                            "|0\t0\t0\t0\t0\t0\t0\t|\n" +
+                            "|0\t0\t0\t0\t0\t0\t0\t|\n" +
+                            "|0\t0\t0\t0\t0\t0\t0\t|\n" +
+                            "|0\t0\t0\t0\t0\t0\t0\t|\n" +
+                            "|0\t0\t0\t0\t0\t0\t0\t|\n" +
+                            "|0\t0\t0\t0\t0\t0\t0\t|\n";
         String result = instance.toString();
-        assertEquals(expResult, result);
+        assertEquals(expResult, result); // test that toString prints in the proper format
         
     }
     
      @Test
     public void testWinHandler() {
-        Board board = new Board();
-        int[][] gameBoard = board.getInternalGameBoard();
-        int playerID = 1;
-        gameBoard[5][0] = playerID;
-        gameBoard[4][0] = playerID;
-        gameBoard[3][0] = playerID;
-        gameBoard[2][0] = playerID;
-        board.setInternalGameBoard(gameBoard);
-        assertTrue(board.winHandler());
-        
+         System.out.println("WinHandler");
+         Board board = new Board();
+         int[][] gameBoard = board.getInternalGameBoard();
+         int playerID = 1;
+         gameBoard[5][0] = playerID;
+         gameBoard[4][0] = playerID;
+         gameBoard[3][0] = playerID;
+         gameBoard[2][0] = playerID;
+         board.setInternalGameBoard(gameBoard);
+         assertTrue(board.winHandler()); // test to make sure the winHandler detects the win successfully
+         gameBoard[5][0] = playerID;
+         gameBoard[4][0] = playerID;
+         gameBoard[3][0] = playerID;
+         gameBoard[2][0] = 0;
+         board.setInternalGameBoard(gameBoard);
+         assertFalse(board.winHandler()); // test to make sure the winHandler doesn't detect a win successfully
     }
     @Test
     public void testCheckWin(){
+        System.out.println("CheckWin");
         //vertical win
         Board board = new Board();
         int[][] gameBoard = board.getInternalGameBoard();
@@ -104,7 +142,7 @@ public class BoardTest {
         board2.setInternalGameBoard(gameBoard);
         assertFalse(board2.winHandler());
         
-        //righ diagonal win
+        //right diagonal win
         Board board3 = new Board();
         gameBoard = board3.getInternalGameBoard();
         playerID = 3;
@@ -115,7 +153,7 @@ public class BoardTest {
         board3.setInternalGameBoard(gameBoard);
         assertTrue(board3.winHandler());
         
-        //righ diagonal  fail
+        //right diagonal fail
         board3 = new Board();
         playerID = 3;
         gameBoard[1][4] = 2;
@@ -150,6 +188,7 @@ public class BoardTest {
     
     @Test
     public void checkGoReplacement() {
+        System.out.println("GoReplacement");
         Board board = new Board();
         int[][] gameBoard = board.getInternalGameBoard();
         int playerID = 1;
@@ -157,11 +196,12 @@ public class BoardTest {
         gameBoard[3][2] = playerID;
         gameBoard[3][3] = 2; // middle piece
         gameBoard[3][4] = playerID;
-        gameBoard[4][3] = playerID - 10;
-        //gameBoard[5][2] = playerID;
-        board.setInternalGameBoard(gameBoard);
-        int[][] testBoard = board.getInternalGameBoard();
-        //assertTrue(board.checkGoReplacement(testBoard));
+        gameBoard[4][3] = playerID + 10;
+
+        board.setInternalGameBoard(gameBoard); //set internal board while the gameBoard array is in this state
+        board.winHandler();
+        gameBoard[3][3] = playerID;
+        assertEquals(board.getInternalGameBoard(), gameBoard);
         
     }
 }

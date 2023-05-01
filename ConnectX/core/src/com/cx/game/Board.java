@@ -1,4 +1,4 @@
-  
+
 package com.cx.game;
 import com.badlogic.gdx.Game;
 import java.lang.Math;
@@ -33,14 +33,14 @@ public class Board {
         for(int i = 0; i<tracker.length; i++)
             this.tracker[i] = internalGameBoard.length-1;
     }
-    Board(ConnectX game, Queue<Player> players, int a, int b){
+    Board(Queue<Player> players, int width, int height){
         
         setPlayersQueue(players);
         for(Player x : players){
             playerIDs.put(x.getID(), x);
             playerIDs.put(x.getGoID(), x);
         }
-        setInternalGameBoard(new int[b][a]);
+        setInternalGameBoard(new int[height][width]);
         tracker = new int[internalGameBoard[0].length];
         for(int i = 0; i<tracker.length; i++)
             this.tracker[i] = internalGameBoard.length-1;
@@ -222,6 +222,9 @@ public class Board {
     }
     public int getWinnerID(){
         return winner;
+    }
+    public int[] getTracker(){
+        return tracker;
     }
     
     
