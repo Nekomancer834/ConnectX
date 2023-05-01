@@ -53,6 +53,7 @@ Appendix E: [Github Link](#appendix-e-github-link)
 | all    | 11/5/22 | update for phase 2                            | 1.1       |
 | all    | 2/14/23 | update for phase 4 and new fatures and changes| 1.2       |
 | Trent  | 3/18/23 | update Appendix D to reflect current software | 1.6       |
+| Trent  | 5/01/23 | minor grammar updates and finishing touches   | 1.8       |
 
 
 ## 1. Introduction
@@ -255,8 +256,8 @@ Response: the game will place their piece at the lowest space in the column that
 #### 3.6.3 Functional Requirements
 
 REQ-1: recreated game board style\
-REQ-2: piece snapping\
-REQ-3: fake gravity
+REQ-2: active piece snapping\
+REQ-3: fake gravity on the board
 
 ## 4. External Interface Requirements
 
@@ -277,7 +278,7 @@ Setup Menu
 - selection slider for player count
 - selection slider for board scaling (-2 through +2)
 - selection slider for new features (none, some, and all)
-- intuitive color selection methods
+- intuitive color selection interface
 - start game button
 - back button
 
